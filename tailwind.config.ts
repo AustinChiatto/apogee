@@ -57,7 +57,7 @@ const config = {
           foreground: 'hsl(var(--card-foreground))'
         },
         glass: {
-          DEFAULT: 'hsl(var(--background) / 0.25)',
+          DEFAULT: 'hsl(var(--background) / 0.9)',
           foreground: 'hsl(var(--foreground) / 0.25)'
         }
       },
