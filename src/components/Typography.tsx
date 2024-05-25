@@ -51,3 +51,7 @@ export const TextSmall = ({ children }: TypographyProps) => {
 export const TextMuted = ({ children }: TypographyProps) => {
   return <p className="text-sm text-muted-foreground">{children}</p>;
 };
+
+const Typography = [H1, H2, H3, H4, Text, Quote, InlineCode, TextLarge, TextSmall, TextMuted];
+
+export default Typography;
