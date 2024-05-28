@@ -22,12 +22,15 @@ const MissionList: React.FC<{ items: Mission[] }> = ({ items }) => {
 
   return (
     <ScrollArea className="h-full ">
-      <div className="flex flex-col gap-4 p-4 pt-1">
+      <div className="flex flex-col gap-4 p-4 pt-2">
         {items &&
           items.map((item) => (
             <button
               key={item.id}
-              className="relative overflow-hidden rounded-2xl p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard"
+              className={`relative overflow-hidden rounded-2xl p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
+                item.id === selectedMissionId &&
+                'ring-2 ring-glass ring-offset-4 ring-offset-background'
+              }`}
               onMouseMove={handleMouseMove}
               onClick={() => setSelectedMissionId(item.id)}
             >
@@ -40,7 +43,7 @@ const MissionList: React.FC<{ items: Mission[] }> = ({ items }) => {
                   alt="todo:"
                 />
               </div>
-              <div className="absolute top-0 right-0 bottom-0 left-0 overlay p-4 flex flex-col justify-between">
+              <div className="absolute top-0 right-0 bottom-0 left-0 p-4 flex flex-col justify-between overlay rounded-2xl">
                 <div className="flex align-center justify-end">
                   {item.mission.type && <Badge variant={'glass'}>{item.mission.type}</Badge>}
                 </div>

@@ -51,7 +51,7 @@ const Home = async () => {
             </Tabs>
           </ResizablePanel>
           <ResizableHandle />
-          <ResizablePanel className="p-4 flex items-center justify-center border-l relative">
+          <ResizablePanel className="p-4 flex flex-col border-l relative">
             <MissionDisplay items={missions} />
           </ResizablePanel>
         </ResizablePanelGroup>
