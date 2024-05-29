@@ -27,9 +27,9 @@ const MissionList: React.FC<{ items: Mission[] }> = ({ items }) => {
           items.map((item) => (
             <button
               key={item.id}
-              className={`relative overflow-hidden rounded-2xl p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
+              className={`border relative overflow-hidden rounded-2xl p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
                 item.id === selectedMissionId &&
-                'ring-2 ring-glass ring-offset-4 ring-offset-background'
+                'border-[transparent] ring-2 ring-glass-foreground ring-offset-4 ring-offset-background'
               }`}
               onMouseMove={handleMouseMove}
               onClick={() => setSelectedMissionId(item.id)}
@@ -38,7 +38,7 @@ const MissionList: React.FC<{ items: Mission[] }> = ({ items }) => {
                 <Image
                   src={`${item.image && item.image}`}
                   fill
-                  sizes="25vw"
+                  sizes="15vw"
                   style={{ objectFit: 'cover' }}
                   alt="todo:"
                 />
