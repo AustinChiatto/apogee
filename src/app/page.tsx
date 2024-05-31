@@ -53,7 +53,7 @@ const Home = async () => {
           <ResizableHandle />
           <ResizablePanel
             defaultSize={75}
-            className="p-4 pt-0 pr-0 flex flex-col border-l relative"
+            className="pl-4 flex flex-col border-l relative"
           >
             <MissionDisplay items={missions} />
           </ResizablePanel>

@@ -7,13 +7,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export const getStatusClass = (id: number) => {
   if ([6, 1, 3].includes(id)) {
-    return 'bg-green-500';
+    return 'success';
   } else if ([8, 5, 2].includes(id)) {
-    return 'bg-yellow-500';
+    return 'warning';
   } else if ([4, 7].includes(id)) {
-    return 'bg-red-500';
+    return 'danger';
   } else {
-    return 'bg-gray-500';
+    return 'secondary';
   }
 };
 

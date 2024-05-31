@@ -24,12 +24,18 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --success: 120 49% 92%;
+    --success-foreground: 116 36% 31%;
+    --warning: 50 56% 92%;
+    --warning-foreground: 46 53% 48%;
+    --danger: 3 45% 91%;
+    --danger-foreground: 4 52% 26%;
   }
 
   .dark {
     --background: 0 0% 8%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 8%;
+    --card: 0 0% 0%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
@@ -48,6 +54,12 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+    --success: 120 49% 92%;
+    --success-foreground: 116 36% 31%;
+    --warning: 50 56% 92%;
+    --warning-foreground: 46 53% 48%;
+    --danger: 3 45% 91%;
+    --danger-foreground: 4 52% 26%;
   }
 }
 
@@ -113,4 +125,20 @@
   );
   transition: opacity 500ms;
   pointer-events: none;
+}
+
+.bg-success-gradient {
+  background: linear-gradient(90deg, #5cb67f 0%, #97e8b5 100%);
+}
+
+.bg-warning-gradient {
+  background: linear-gradient(90deg, #c7b661 0%, #fff0a4 100%);
+}
+
+.bg-danger-gradient {
+  background: linear-gradient(90deg, #b55b5b 0%, #ff9b9b 100%);
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(90deg, #2a7bc5 0%, #39a0ff 100%);
 }
