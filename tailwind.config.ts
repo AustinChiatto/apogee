@@ -59,6 +59,18 @@ const config = {
         glass: {
           DEFAULT: 'hsl(var(--glass) / 0.9)',
           foreground: 'hsl(var(--glass-foreground) / 0.5)'
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))'
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          foreground: 'hsl(var(--warning-foreground))'
+        },
+        danger: {
+          DEFAULT: 'hsl(var(--danger))',
+          foreground: 'hsl(var(--danger-foreground))'
         }
       },
       borderRadius: {

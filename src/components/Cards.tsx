@@ -1,61 +1,58 @@
 import { getStatusClass } from '@/lib/utils';
 import { Badge } from './ui/badge';
+import { ReactNode } from 'react';
 
-export const LaunchCountdownCard = ({ time, badge }: { time: string; badge: string }) => {
+type BaseProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+interface CardProps extends BaseProps {
+  variant?: 'default' | 'wide' | 'tall';
+}
+
+type CardHeaderProps = {
+  preHeading?: string;
+  heading?: string;
+  children?: ReactNode;
+};
+
+export const Card = ({ variant = 'default', children, className }: CardProps) => {
+  const variants = {
+    default: '',
+    wide: '',
+    tall: ''
+  };
+
+  const cardVariant = variants[variant];
+
   return (
-    <article className="rounded-2xl bg-[black] flex-1 p-[1.125rem] flex flex-col justify-between min-h-[10rem]">
-      <header className="flex items-start justify-between">
-        <div>
-          <h3 className="text-sm font-medium leading-none text-secondary">Launch Countdown</h3>
-          <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-2">{time}</h4>
-        </div>
-        <Badge className="rounded-full">{badge}</Badge>
-      </header>
-      <section className="w-full bg-card relative h-4 rounded-sm">
-        <div className="w-8/12 h-4 rounded-sm bg-secondary"></div>
-      </section>
-    </article>
+    <section
+      className={`flex-1 flex flex-col justify-between p-[1.125rem] rounded-2xl bg-card ${cardVariant} ${className}`}
+    >
+      {children}
+    </section>
   );
 };
 
-export const LaunchRecordCard = ({
-  provider,
-  providerCount,
-  totalCount,
-  statusId
-}: {
-  provider: string;
-  providerCount: number;
-  totalCount: number;
-  statusId: number;
-}) => {
-  const countNotProvider = totalCount - providerCount;
-  const countPrivderNotCurrent = providerCount - 1;
-
-  const notProvider = Array.from({ length: countNotProvider }, (_, index) => index);
-  const providerNotCurrent = Array.from({ length: countPrivderNotCurrent }, (_, index) => index);
-
+export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) => {
   return (
-    <article className="rounded-2xl bg-[black] flex-1 p-[1.125rem] flex flex-col justify-between gap-8">
-      <header>
-        <h3 className="text-sm font-medium leading-none text-secondary">2024 Launch Record</h3>
-        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-2">{provider}</h4>
-      </header>
-      <section className="w-full max-w-full flex flex-wrap gap-1">
-        {notProvider.map((_, i) => (
-          <span
-            key={i}
-            className="inline w-2 h-2 rounded-full bg-muted"
-          ></span>
-        ))}
-        {providerNotCurrent.map((_, i) => (
-          <span
-            key={i}
-            className="inline w-2 h-2 rounded-full bg-secondary"
-          ></span>
-        ))}
-        <span className={`inline w-2 h-2 rounded-full ${getStatusClass(statusId)}`}></span>
-      </section>
-    </article>
+    <header className={`pb-4 ${children && 'flex items-start justify-between'}`}>
+      {(preHeading || heading) && (
+        <div className="flex flex-col gap-1">
+          {preHeading && (
+            <h3 className="text-sm font-medium leading-none text-secondary">{preHeading}</h3>
+          )}
+          {heading && (
+            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">{heading}</h4>
+          )}
+        </div>
+      )}
+      {children}
+    </header>
   );
+};
+
+export const CardContent = ({ children, className }: BaseProps) => {
+  return <div className={`${className}`}>{children}</div>;
 };
