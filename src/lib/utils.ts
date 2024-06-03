@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getStatusClass = (id: number) => {
+export const getStatusType = (id: number) => {
   if ([6, 1, 3].includes(id)) {
     return 'success';
   } else if ([8, 5, 2].includes(id)) {

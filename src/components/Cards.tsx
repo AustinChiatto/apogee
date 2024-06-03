@@ -1,4 +1,4 @@
-import { getStatusClass } from '@/lib/utils';
+import { getStatusType } from '@/lib/utils';
 import { Badge } from './ui/badge';
 import { ReactNode } from 'react';
 
@@ -37,7 +37,7 @@ export const Card = ({ variant = 'default', children, className }: CardProps) =>
 
 export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) => {
   return (
-    <header className={`pb-4 ${children && 'flex items-start justify-between'}`}>
+    <header className={`${children && 'flex items-start justify-between'}`}>
       {(preHeading || heading) && (
         <div className="flex flex-col gap-1">
           {preHeading && (
@@ -54,5 +54,5 @@ export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) =
 };
 
 export const CardContent = ({ children, className }: BaseProps) => {
-  return <div className={`${className}`}>{children}</div>;
+  return <div className={`pt-4 ${className}`}>{children}</div>;
 };
