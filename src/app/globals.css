@@ -142,3 +142,7 @@
 .bg-blue-gradient {
   background: linear-gradient(90deg, #2a7bc5 0%, #39a0ff 100%);
 }
+
+.last-grid-item-odd:nth-last-child(1):nth-child(odd) {
+  grid-column: span 2;
+}

@@ -19,7 +19,7 @@ type CardHeaderProps = {
 
 export const Card = ({ variant = 'default', children, className }: CardProps) => {
   const variants = {
-    default: '',
+    default: 'min-h-[9rem]',
     wide: '',
     tall: ''
   };

@@ -65,3 +65,5 @@ export const translateDate = (dateString: string): string => {
 
   return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 };
+
+export const createArray = (length: number) => Array.from({ length });
