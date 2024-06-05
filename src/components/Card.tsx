@@ -40,14 +40,8 @@ export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) =
     <header className={`${children && 'flex items-start justify-between'}`}>
       {(preHeading || heading) && (
         <div className="flex flex-col gap-1">
-          {preHeading && (
-            <h3 className="text-sm font-medium leading-none text-secondary">{preHeading}</h3>
-          )}
-          {heading && (
-            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight leading-none pt-1">
-              {heading}
-            </h4>
-          )}
+          {preHeading && <h3 className="heading-sm">{preHeading}</h3>}
+          {heading && <h4 className="heading-lg pt-1">{heading}</h4>}
         </div>
       )}
       {children}

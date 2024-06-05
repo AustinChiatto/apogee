@@ -60,9 +60,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
                     >
                       {translateDate(mission.net)}
                     </Badge>
-                    <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">
-                      {mission.name}
-                    </h3>
+                    <h3 className="heading-lg">{mission.name}</h3>
                     <div className="flex items-center gap-2">
                       <p className="inline-block text-sm tracking-tight truncate max-w-[15ch]">
                         {provider.name}

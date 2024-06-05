@@ -22,7 +22,7 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
       </Card>
       <div className="flex gap-2">
         {/* Provider Breakdown */}
-        <Card className="">
+        <Card>
           <CardHeader />
         </Card>
         <div className="flex-1 flex flex-col gap-2">

@@ -97,7 +97,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
           <Card>
             <CardHeader preHeading="Destination" />
             <CardContent>
-              <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              <h4 className="heading-lg">
                 {mission.orbitName} &middot; ({mission.orbitAbbrev})
               </h4>
               <p className="font-medium leading-none text-secondary pt-1">{mission.orbitDesc}</p>
@@ -106,7 +106,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
           <Card>
             <CardHeader preHeading="Mission Type" />
             <CardContent>
-              <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">{mission.type}</h4>
+              <h4 className="heading-lg">{mission.type}</h4>
             </CardContent>
           </Card>
         </div>

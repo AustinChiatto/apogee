@@ -63,10 +63,8 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                       key={i}
                       className="flex flex-col gap-1"
                     >
-                      <h4 className="text-sm font-medium leading-none text-secondary">{e.label}</h4>
-                      <h5 className="scroll-m-20 text-xl font-semibold tracking-tight">
-                        {e.value}
-                      </h5>
+                      <h4 className="heading-sm">{e.label}</h4>
+                      <h5 className="heading-lg">{e.value}</h5>
                     </li>
                   ) : null
                 )}
@@ -144,12 +142,8 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                     key={i}
                     className="cols-span-1 border rounded-md p-4 flex flex-col items-center justify-center gap-1 last-grid-item-odd"
                   >
-                    <h4 className="text-sm font-medium leading-none text-secondary">
-                      {stat.label}
-                    </h4>
-                    <h5 className="scroll-m-20 text-xl font-semibold tracking-tight">
-                      {stat.value}
-                    </h5>
+                    <h4 className="heading-sm">{stat.label}</h4>
+                    <h5 className="heading-lg">{stat.value}</h5>
                   </li>
                 ) : null
               )}

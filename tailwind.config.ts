@@ -94,7 +94,24 @@ const config = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addUtilities }: { addUtilities: any }) {
+      const newUtilities = {
+        '.heading-xl': {
+          '@apply scroll-m-20 text-2xl font-semibold tracking-tight': {}
+        },
+        '.heading-lg': {
+          '@apply scroll-m-20 text-xl font-semibold tracking-tight': {}
+        },
+        '.heading-sm': {
+          '@apply text-sm font-medium leading-none text-secondary': {}
+        }
+      };
+
+      addUtilities(newUtilities);
+    }
+  ]
 } satisfies Config;
 
 export default config;

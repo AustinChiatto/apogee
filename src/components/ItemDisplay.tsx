@@ -1,7 +1,6 @@
 'use client';
 import { useSelectedMission } from '@/hooks/use-mission-data';
 import { Mission } from '@/types/missionProps';
-import { H3 } from './Typography';
 import { getStatusType, translateDate } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
 import MissionDisplayDetails from './MissionDisplayDetails';
@@ -32,7 +31,7 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
         <div
           className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}-gradient`}
         ></div>
-        <H3>{mission.name ?? 'NAME NULL'}</H3>
+        <h3 className="heading-xl">{mission.name ?? 'NAME NULL'}</h3>
       </div>
       <div className="bg-foreground text-background px-2 rounded">
         {mission.net ? translateDate(mission.net) : 'TBC'}
