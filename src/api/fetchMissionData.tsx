@@ -4,7 +4,7 @@ const getMissions = async (): Promise<{ upcoming: Mission[]; previous: Mission[]
   const missionSets = ['upcoming', 'previous'];
 
   const missionSetPromises = missionSets.map((missionSet) =>
-    fetch(`https://ll.thespacedevs.com/2.2.0/launch/${missionSet}`, {
+    fetch(`https://ll.thespacedevs.com/2.2.0/launch/${missionSet}/?mode=detailed`, {
       next: { revalidate: 14400 }
     }).then((res) => {
       if (!res.ok) {

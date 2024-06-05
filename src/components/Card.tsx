@@ -28,7 +28,7 @@ export const Card = ({ variant = 'default', children, className }: CardProps) =>
 
   return (
     <section
-      className={`flex-1 flex flex-col justify-between p-[1.125rem] rounded-2xl bg-card ${cardVariant} ${className}`}
+      className={`flex-1 flex flex-col justify-between p-[1.125rem] rounded-2xl bg-card overflow-hidden ${cardVariant} ${className}`}
     >
       {children}
     </section>
@@ -44,7 +44,9 @@ export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) =
             <h3 className="text-sm font-medium leading-none text-secondary">{preHeading}</h3>
           )}
           {heading && (
-            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">{heading}</h4>
+            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight leading-none pt-1">
+              {heading}
+            </h4>
           )}
         </div>
       )}

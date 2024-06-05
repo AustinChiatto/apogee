@@ -1,10 +1,10 @@
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { H4 } from '@/components/Typography';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import MissionList from '@/components/MissionList';
 import getMissions from '@/api/fetchMissionData';
 import { SelectedMissionProvider } from '@/hooks/use-mission-data';
-import MissionDisplay from '@/components/MissionDisplay';
+import ItemDisplay from '@/components/ItemDisplay';
+import ItemList from '@/components/ItemList';
 
 const Home = async () => {
   const missions = await getMissions();
@@ -39,13 +39,13 @@ const Home = async () => {
                   value="upcoming"
                   className="flex-1 m-0 overflow-hidden"
                 >
-                  {missions && <MissionList items={missions.upcoming} />}
+                  {missions && <ItemList items={missions.upcoming} />}
                 </TabsContent>
                 <TabsContent
                   value="previous"
                   className="flex-1 m-0 overflow-hidden"
                 >
-                  {missions && <MissionList items={missions.previous} />}
+                  {missions && <ItemList items={missions.previous} />}
                 </TabsContent>
               </div>
             </Tabs>
@@ -55,7 +55,7 @@ const Home = async () => {
             defaultSize={75}
             className="pl-4 flex flex-col border-l relative"
           >
-            <MissionDisplay items={missions} />
+            <ItemDisplay items={missions} />
           </ResizablePanel>
         </ResizablePanelGroup>
       </main>

@@ -17,6 +17,7 @@ export const getStatusType = (id: number) => {
   }
 };
 
+// date to human string
 export const translateDate = (dateString: string): string => {
   const dateObj = new Date(dateString);
   const now = new Date();
