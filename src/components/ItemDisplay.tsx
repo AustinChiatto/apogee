@@ -18,11 +18,11 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
     upcoming.find((mission) => mission.id === selectedMissionId) ||
     previous.find((mission) => mission.id === selectedMissionId);
 
-  // if (!item) {
-  //   return <p>Mission not found</p>;
-  // }
+  if (!item) {
+    return <p>Mission not found</p>;
+  }
 
-  // const mission = getMissionDetails(item);
+  const mission = getMissionDetails(item);
 
   const displayComponents = [MissionDisplayDetails, VehicleDisplayDetails, ProviderDisplayDetails];
 
@@ -30,12 +30,12 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
     <div className="sticky top-0 left-0 right-0 flex items-center justify-between h-[4.5rem] z-10 bg-background">
       <div className="flex items-center gap-4">
         <div
-          className={`w-2 h-2 rounded-full bg-${getStatusType(item?.status.id ?? 0)}-gradient`}
+          className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}-gradient`}
         ></div>
-        <H3>{item?.mission.name ?? 'NAME NULL'}</H3>
+        <H3>{mission.name ?? 'NAME NULL'}</H3>
       </div>
       <div className="bg-foreground text-background px-2 rounded">
-        {item?.net ? translateDate(item.net) : 'TBC'}
+        {mission.net ? translateDate(mission.net) : 'TBC'}
       </div>
     </div>
   );
