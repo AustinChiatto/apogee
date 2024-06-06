@@ -46,8 +46,8 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
           isTitle
         />
       </Card>
-      <div className="flex gap-2">
-        <div className="flex-1 h-max flex flex-col gap-2">
+      <div className="grid grid-cols-2 gap-2">
+        <div className="span-cols-1 h-max flex flex-col gap-2">
           {/* Vehicle Configuration */}
           <Card className="gap-8 pb-3">
             <CardHeader preHeading="Configuration">
@@ -131,7 +131,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
           )}
         </div>
         {/* Vehicle Stats */}
-        <Card>
+        <Card className="span-cols-1">
           <CardContent className="pt-[unset] flex-1">
             <ul className="grid grid-cols-2 gap-2 h-full">
               {vehicleStats.map((stat, i) =>

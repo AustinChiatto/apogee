@@ -22,13 +22,15 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
   };
 
   return (
-    <ScrollArea className="h-full ">
+    <ScrollArea className="h-full">
       <div className="flex flex-col gap-4 p-4 pt-2">
         {items &&
           items.map((item) => {
             const mission = getMissionDetails(item);
             const provider = getProviderDetails(item.launch_service_provider);
             const vehicle = getVehicleDetails(item.rocket);
+            const providerName = provider.name.length > 15 ? provider.abbrev : provider.name;
+            const vehicleName = vehicle.fullName.length > 20 ? vehicle.name : vehicle.fullName;
 
             return (
               <button
@@ -63,10 +65,10 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
                     <h3 className="heading-lg">{mission.name}</h3>
                     <div className="flex items-center gap-2">
                       <p className="inline-block text-sm tracking-tight truncate max-w-[15ch]">
-                        {provider.name}
+                        {providerName}
                       </p>
                       &middot;
-                      <p className="inline-block text-sm tracking-tight">{vehicle.fullName}</p>
+                      <p className="inline-block text-sm tracking-tight">{vehicleName}</p>
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ type BaseProps = {
 };
 
 interface CardProps extends BaseProps {
-  variant?: 'default' | 'wide' | 'tall' | 'sectionLabel';
+  variant?: 'default' | 'image' | 'tall' | 'sectionLabel';
 }
 
 type CardHeaderProps = {
@@ -19,7 +19,7 @@ type CardHeaderProps = {
 export const Card = ({ variant = 'default', children, className }: CardProps) => {
   const variants = {
     default: 'min-h-[9rem] bg-card p-[1.125rem]',
-    wide: '',
+    image: 'p-0 relative border',
     tall: '',
     sectionLabel: 'pt-12 px-2 pb-[1.625rem] bg-background'
   };

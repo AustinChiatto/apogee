@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Card, CardHeader, CardContent } from './Card';
 import { Badge } from './ui/badge';
 import { getStatusType } from '@/lib/utils';
-import { getMissionDetails } from '@/lib/missionUtils';
+import { getMissionDetails, getProviderDetails } from '@/lib/missionUtils';
 
 type MissionDisplayDetails = {
   item: Mission;
@@ -11,6 +11,9 @@ type MissionDisplayDetails = {
 
 const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
   const mission = getMissionDetails(item);
+  const provider = getProviderDetails(item.launch_service_provider);
+
+  const providerName = provider.name.length > 15 ? provider.abbrev : provider.name;
 
   // countdown card
   const statusType = getStatusType(mission.statusId);
@@ -29,17 +32,15 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
 
   return (
     <>
-      {mission.image && (
-        <figure className="relative max-w-full w-full h-auto aspect-video rounded-3xl overflow-hidden border">
-          <Image
-            src={mission.image}
-            alt="todo:"
-            sizes="75vw"
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-          />
-        </figure>
-      )}
+      <figure className="relative max-w-full w-full h-auto aspect-video rounded-3xl overflow-hidden border">
+        <Image
+          src={mission.image}
+          alt="todo:"
+          sizes="75vw"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'top' }}
+        />
+      </figure>
       <div className="flex gap-2">
         {/* Countdown timer */}
         <Card>
@@ -59,7 +60,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
         <Card>
           <CardHeader
             preHeading="Launch Contributions"
-            heading="SpaceX"
+            heading={`${providerName}`}
           ></CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-1">
@@ -87,14 +88,14 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
           isTitle
         />
       </Card>
-      <div className="flex gap-2">
-        <Card className="aspect-[1.5/1]">
+      <div className="grid grid-cols-2 gap-2">
+        <Card className="span-cols-1">
           <CardHeader
             preHeading={`${mission.locationName}`}
             heading={`${mission.padName}`}
           />
         </Card>
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="span-cols-1 flex flex-col gap-2">
           <Card>
             <CardHeader preHeading="Destination" />
             <CardContent>
@@ -104,7 +105,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
               <p className="font-medium leading-none text-secondary pt-1">{mission.orbitDesc}</p>
             </CardContent>
           </Card>
-          <Card className="pb-[1.125rem]">
+          <Card className="pb-[0.75rem]">
             <CardHeader preHeading="Mission Type" />
             <CardContent>
               <h4 className="heading-lg">{mission.type}</h4>
