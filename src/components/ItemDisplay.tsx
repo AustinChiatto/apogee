@@ -28,9 +28,7 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
   const displayHeader = (
     <div className="sticky top-0 left-0 right-0 flex items-center justify-between h-[4.5rem] z-10 bg-background">
       <div className="flex items-center gap-4">
-        <div
-          className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}-gradient`}
-        ></div>
+        <div className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}`}></div>
         <h3 className="heading-xl">{mission.name ?? 'NAME NULL'}</h3>
       </div>
       <div className="bg-foreground text-background px-2 rounded">

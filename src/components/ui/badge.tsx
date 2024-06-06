@@ -17,9 +17,9 @@ const badgeVariants = cva(
         outline: 'text-foreground',
         glass:
           'border-transparent bg-glass-foreground backdrop-blur-xl hover:bg-glass-foreground/35',
-        success: 'text-success-foreground bg-success rounded-full',
-        warning: 'text-warning-foreground bg-warning rounded-full',
-        danger: 'text-danger-foreground bg-danger rounded-full'
+        success: 'border-transparent text-success bg-success/20 rounded-full',
+        warning: 'border-transparent text-warning bg-warning/20 rounded-full',
+        danger: 'border-transparent text-danger bg-danger/20 rounded-full'
       }
     },
     defaultVariants: {

@@ -13,7 +13,8 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
   const mission = getMissionDetails(item);
 
   // countdown card
-  const bgStatus = `bg-${getStatusType(mission.statusId)}-gradient`;
+  const statusType = getStatusType(mission.statusId);
+  const bgStatus = `bg-${statusType}`;
 
   // attempt contribution card
   const currentAttempt = 1;

@@ -10,6 +10,7 @@ const config = {
     './src/**/*.{ts,tsx}'
   ],
   prefix: '',
+  safelist: ['bg-success', 'bg-warning', 'bg-danger', 'bg-secondary'],
   theme: {
     container: {
       center: true,

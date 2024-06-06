@@ -32,8 +32,8 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
             />
             <CardContent className="pt-6">
               <div className="flex justify-between w-full bg-muted rounded-full">
-                <div className={`rounded-full w-1/4 h-4 bg-danger-gradient`}></div>
-                <div className={`rounded-full w-2/3 h-4 bg-blue-gradient`}></div>
+                <div className={`rounded-full w-1/4 h-4 bg-danger`}></div>
+                <div className={`rounded-full w-2/3 h-4 bg-accent`}></div>
               </div>
             </CardContent>
           </Card>
@@ -45,8 +45,8 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
             />
             <CardContent className="pt-6">
               <div className="flex justify-between w-full bg-muted rounded-full">
-                <div className={`rounded-full w-8 h-4 bg-danger-gradient`}></div>
-                <div className={`rounded-full w-1/3 h-4 bg-blue-gradient`}></div>
+                <div className={`rounded-full w-8 h-4 bg-danger`}></div>
+                <div className={`rounded-full w-1/3 h-4 bg-accent`}></div>
               </div>
             </CardContent>
           </Card>

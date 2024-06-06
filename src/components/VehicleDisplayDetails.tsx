@@ -76,11 +76,11 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
               heading={`${vehicle.launchCount}`}
             />
             <CardContent className="pt-6">
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap-reverse gap-1">
                 {launchesFailed.map((_, i) => (
                   <span
                     key={i}
-                    className="inline-block w-2 h-2 bg-danger-gradient rounded-full"
+                    className="inline-block w-2 h-2 bg-danger rounded-full"
                   ></span>
                 ))}
                 {launchesNonConsecutive.map((_, i) => (
@@ -92,7 +92,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                 {launchesConsecutive.map((_, i) => (
                   <span
                     key={i}
-                    className="inline-block w-2 h-2 bg-blue-gradient rounded-full"
+                    className="inline-block w-2 h-2 bg-accent rounded-full"
                   ></span>
                 ))}
               </div>
@@ -106,11 +106,11 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                 heading={`${vehicle.landingCount}`}
               />
               <CardContent className="pt-6">
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap-reverse gap-1">
                   {landingsFailed.map((_, i) => (
                     <span
                       key={i}
-                      className="inline-block w-2 h-2 bg-danger-gradient rounded-full"
+                      className="inline-block w-2 h-2 bg-danger rounded-full"
                     ></span>
                   ))}
                   {landingsNonConsecutive.map((_, i) => (
@@ -122,7 +122,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                   {landingsConsecutive.map((_, i) => (
                     <span
                       key={i}
-                      className="inline-block w-2 h-2 bg-blue-gradient rounded-full"
+                      className="inline-block w-2 h-2 bg-accent rounded-full"
                     ></span>
                   ))}
                 </div>

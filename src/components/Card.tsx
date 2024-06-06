@@ -18,17 +18,17 @@ type CardHeaderProps = {
 
 export const Card = ({ variant = 'default', children, className }: CardProps) => {
   const variants = {
-    default: 'min-h-[9rem]',
+    default: 'min-h-[9rem] bg-card p-[1.125rem]',
     wide: '',
     tall: '',
-    sectionLabel: 'pt-8 pb-[1.625rem]'
+    sectionLabel: 'pt-12 px-2 pb-[1.625rem] bg-background'
   };
 
   const cardVariant = variants[variant];
 
   return (
     <section
-      className={`flex-1 flex flex-col justify-between p-[1.125rem] rounded-2xl bg-card overflow-hidden ${cardVariant} ${className}`}
+      className={`flex-1 flex flex-col justify-between rounded-2xl overflow-hidden ${cardVariant} ${className}`}
     >
       {children}
     </section>
