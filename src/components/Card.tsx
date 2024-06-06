@@ -1,5 +1,3 @@
-import { getStatusType } from '@/lib/utils';
-import { Badge } from './ui/badge';
 import { ReactNode } from 'react';
 
 type BaseProps = {
@@ -8,20 +6,22 @@ type BaseProps = {
 };
 
 interface CardProps extends BaseProps {
-  variant?: 'default' | 'wide' | 'tall';
+  variant?: 'default' | 'wide' | 'tall' | 'sectionLabel';
 }
 
 type CardHeaderProps = {
   preHeading?: string;
   heading?: string;
   children?: ReactNode;
+  isTitle?: boolean;
 };
 
 export const Card = ({ variant = 'default', children, className }: CardProps) => {
   const variants = {
     default: 'min-h-[9rem]',
     wide: '',
-    tall: ''
+    tall: '',
+    sectionLabel: 'pt-8 pb-[1.625rem]'
   };
 
   const cardVariant = variants[variant];
@@ -35,13 +35,15 @@ export const Card = ({ variant = 'default', children, className }: CardProps) =>
   );
 };
 
-export const CardHeader = ({ preHeading, heading, children }: CardHeaderProps) => {
+export const CardHeader = ({ preHeading, heading, children, isTitle }: CardHeaderProps) => {
   return (
     <header className={`${children && 'flex items-start justify-between'}`}>
       {(preHeading || heading) && (
         <div className="flex flex-col gap-1">
           {preHeading && <h3 className="heading-sm">{preHeading}</h3>}
-          {heading && <h4 className="heading-lg pt-1">{heading}</h4>}
+          {heading && (
+            <h4 className={`leading-none ${isTitle ? 'heading-xl' : 'heading-lg'}`}>{heading}</h4>
+          )}
         </div>
       )}
       {children}

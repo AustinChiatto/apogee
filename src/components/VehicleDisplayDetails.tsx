@@ -39,19 +39,17 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
 
   return (
     <>
-      <Card
-        variant="wide"
-        className="py-6"
-      >
+      <Card variant="sectionLabel">
         <CardHeader
-          preHeading="Mission Name"
+          preHeading="Launch Vehicle"
           heading={`${vehicle.fullName}`}
+          isTitle
         />
       </Card>
       <div className="flex gap-2">
         <div className="flex-1 h-max flex flex-col gap-2">
           {/* Vehicle Configuration */}
-          <Card className="gap-8">
+          <Card className="gap-8 pb-3">
             <CardHeader preHeading="Configuration">
               {vehicle.reusable && <Badge>Reusable</Badge>}
             </CardHeader>

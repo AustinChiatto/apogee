@@ -1,5 +1,4 @@
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
-import { H4 } from '@/components/Typography';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import getMissions from '@/api/fetchMissionData';
 import { SelectedMissionProvider } from '@/hooks/use-mission-data';
@@ -29,7 +28,7 @@ const Home = async () => {
               <div className="flex-1 overflow-hidden flex flex-col">
                 <div className="sticky top-0 z-10 flex items-center p-4">
                   <h1 className="visuallyHidden">Apogee Spaceflight Tracker - Upcoming Missions</h1>
-                  <H4>Missions</H4>
+                  <h4 className="heading-lg">Missions</h4>
                   <TabsList className="ml-auto">
                     <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
                     <TabsTrigger value="previous">Previous</TabsTrigger>

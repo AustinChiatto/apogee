@@ -11,13 +11,11 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
 
   return (
     <>
-      <Card
-        variant="wide"
-        className="py-6"
-      >
+      <Card variant="sectionLabel">
         <CardHeader
-          preHeading="Mission Name"
+          preHeading="Launch Service Provider"
           heading={`${provider.name}`}
+          isTitle
         />
       </Card>
       <div className="flex gap-2">

@@ -40,6 +40,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
         </figure>
       )}
       <div className="flex gap-2">
+        {/* Countdown timer */}
         <Card>
           <CardHeader
             preHeading="Launch Countdown"
@@ -53,6 +54,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
             </div>
           </CardContent>
         </Card>
+        {/* Launch attempt contributions */}
         <Card>
           <CardHeader
             preHeading="Launch Contributions"
@@ -77,13 +79,11 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
           </CardContent>
         </Card>
       </div>
-      <Card
-        variant="wide"
-        className="mt-8 py-6"
-      >
+      <Card variant="sectionLabel">
         <CardHeader
-          preHeading="Mission Name"
+          preHeading="Mission Details"
           heading={`${mission.name}`}
+          isTitle
         />
       </Card>
       <div className="flex gap-2">
@@ -103,7 +103,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
               <p className="font-medium leading-none text-secondary pt-1">{mission.orbitDesc}</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Mission Type" />
             <CardContent>
               <h4 className="heading-lg">{mission.type}</h4>

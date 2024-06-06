@@ -98,6 +98,9 @@ const config = {
     require('tailwindcss-animate'),
     function ({ addUtilities }: { addUtilities: any }) {
       const newUtilities = {
+        '.heading-3xl': {
+          '@apply scroll-m-20 text-3xl font-semibold tracking-tight': {}
+        },
         '.heading-xl': {
           '@apply scroll-m-20 text-2xl font-semibold tracking-tight': {}
         },

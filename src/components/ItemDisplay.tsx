@@ -44,7 +44,7 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
       <ScrollArea className="h-full pr-4">
         <div className="max-w-[69rem] mx-auto pb-[25rem]">
           {displayHeader}
-          <div className="flex-1 pb-4 pt-0 flex flex-col gap-8">
+          <div className="flex-1 pb-4 pt-0 flex flex-col gap-2">
             {displayComponents.map((Component, i) => (
               <section
                 key={i}
