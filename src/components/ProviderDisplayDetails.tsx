@@ -1,3 +1,4 @@
+'use client';
 import { Mission } from '@/types/missionProps';
 import { Card, CardContent, CardHeader } from './Card';
 import { getProviderDetails } from '@/lib/missionUtils';
@@ -80,7 +81,7 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
               heading={`${provider.launchCount}`}
             />
             <CardContent className="flex-1">
-              <div className="w-full h-full flex flex-col bg-muted/20 rounded-lg overflow-hidden">
+              <div className="w-full h-full flex flex-col bg-muted/20 rounded-md overflow-hidden">
                 {provider.launchCount > 0 && (
                   <>
                     <div
@@ -99,11 +100,11 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
           {/* Landing record */}
           <Card>
             <CardHeader
-              preHeading="Landing Record"
+              preHeading={'Landing Record'}
               heading={`${provider.landingCount}`}
             />
             <CardContent className="flex-1">
-              <div className="w-full h-full flex flex-col bg-muted/20 rounded-lg overflow-hidden">
+              <div className="w-full h-full flex flex-col bg-muted/20 rounded-md overflow-hidden">
                 {provider.landingCount > 0 && (
                   <>
                     <div
@@ -122,14 +123,14 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
         </div>
         <div className="span-cols-1 flex flex-col gap-2">
           {/* Provider launch vehicles */}
-          <Card className="pb-[0.75rem]">
+          <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Launch Vehicles" />
             <CardContent>
               <h4 className="heading-lg">{provider.launchers}</h4>
             </CardContent>
           </Card>
           {/* Provider spacecraft */}
-          <Card className="pb-[0.75rem]">
+          <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Spacecraft" />
             <CardContent>
               <h4 className="heading-lg">{provider.spacecraft}</h4>

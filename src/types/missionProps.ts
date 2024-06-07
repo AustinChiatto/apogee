@@ -233,6 +233,11 @@ export type Mission = {
     total_launch_count: number;
     orbital_launch_attempt_count: number;
   };
+  vidURLs: {
+    url: string;
+    description: string;
+    feature_image: string;
+  }[];
   webcast_live: boolean;
   image: string;
   infographic: string | null;

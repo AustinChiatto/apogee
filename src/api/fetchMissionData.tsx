@@ -5,7 +5,7 @@ const getMissions = async (): Promise<{ upcoming: Mission[]; previous: Mission[]
 
   const missionSetPromises = missionSets.map((missionSet) =>
     fetch(`https://ll.thespacedevs.com/2.2.0/launch/${missionSet}/?mode=detailed`, {
-      next: { revalidate: 14400 }
+      next: { revalidate: 900 }
     }).then((res) => {
       if (!res.ok) {
         throw new Error(`Failed to fetch data for ${missionSet}`);

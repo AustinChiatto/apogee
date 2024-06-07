@@ -35,7 +35,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
             return (
               <button
                 key={mission.id}
-                className={`border relative overflow-hidden rounded-2xl p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
+                className={`border relative overflow-hidden rounded-lg p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
                   mission.id === selectedMissionId &&
                   'border-[transparent] ring-2 ring-glass-foreground ring-offset-4 ring-offset-background'
                 }`}

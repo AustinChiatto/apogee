@@ -17,6 +17,18 @@ export const getStatusType = (id: number) => {
   }
 };
 
+export const getSafeName = ({
+  nameLong,
+  nameShort,
+  maxLength
+}: {
+  nameLong: string;
+  nameShort: string;
+  maxLength: number;
+}) => {
+  return nameLong.length > maxLength ? nameShort : nameLong;
+};
+
 // date to human string
 export const translateDate = (dateString: string): string => {
   const dateObj = new Date(dateString);

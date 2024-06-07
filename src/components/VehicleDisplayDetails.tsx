@@ -49,7 +49,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
       <div className="grid grid-cols-2 gap-2">
         <div className="span-cols-1 h-max flex flex-col gap-2">
           {/* Vehicle Configuration */}
-          <Card className="gap-8 pb-3">
+          <Card className="gap-8 pb-[1.125rem]">
             <CardHeader preHeading="Configuration">
               {vehicle.reusable && <Badge>Reusable</Badge>}
             </CardHeader>
@@ -141,7 +141,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                     className="cols-span-1 border rounded-md p-4 flex flex-col items-center justify-center gap-1 last-grid-item-odd"
                   >
                     <h4 className="heading-sm">{stat.label}</h4>
-                    <h5 className="heading-lg">{stat.value}</h5>
+                    <h5 className="heading-lg leading-none">{stat.value}</h5>
                   </li>
                 ) : null
               )}

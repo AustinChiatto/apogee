@@ -76,8 +76,8 @@ const config = {
       },
       borderRadius: {
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        md: 'calc(var(--radius) - 0.5rem)',
+        sm: 'calc(var(--radius) - 0.875rem)'
       },
       keyframes: {
         'accordion-down': {
@@ -112,7 +112,6 @@ const config = {
           '@apply text-sm font-medium leading-none text-secondary': {}
         }
       };
-
       addUtilities(newUtilities);
     }
   ]
