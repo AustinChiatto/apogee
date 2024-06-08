@@ -10,7 +10,24 @@ const config = {
     './src/**/*.{ts,tsx}'
   ],
   prefix: '',
-  safelist: ['bg-success', 'bg-warning', 'bg-danger', 'bg-secondary'],
+  safelist: [
+    'bg-success',
+    'bg-warning',
+    'bg-danger',
+    'bg-secondary',
+    'text-success',
+    'text-warning',
+    'text-danger',
+    'text-secondary',
+    'bg-success-foreground',
+    'bg-warning-foreground',
+    'bg-danger-foreground',
+    'bg-secondary-foreground',
+    'text-success-foreground',
+    'text-warning-foreground',
+    'text-danger-foreground',
+    'text-secondary-foreground'
+  ],
   theme: {
     container: {
       center: true,
@@ -56,10 +73,6 @@ const config = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
-        },
-        glass: {
-          DEFAULT: 'hsl(var(--glass) / 0.9)',
-          foreground: 'hsl(var(--glass-foreground) / 0.5)'
         },
         success: {
           DEFAULT: 'hsl(var(--success))',
