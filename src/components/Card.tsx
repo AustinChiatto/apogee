@@ -20,8 +20,8 @@ export const Card = ({ variant = 'default', children, className }: CardProps) =>
   const variants = {
     default: 'min-h-[9rem] bg-card p-6',
     image: 'p-0 relative border',
-    tall: '',
-    sectionLabel: 'p-6 pt-12 pb-[1.125rem] bg-background'
+    tall: 'min-h-[24rem] bg-card p-6',
+    sectionLabel: 'p-6 pt-12 pb-[1.125rem] pl-2 bg-background'
   };
 
   const cardVariant = variants[variant];

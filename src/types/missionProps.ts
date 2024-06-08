@@ -240,8 +240,22 @@ export type Mission = {
   }[];
   webcast_live: boolean;
   image: string;
+  program: {
+    id: number;
+    name: string;
+    description: string;
+    image_url: string;
+    mission_patches: {
+      id: number;
+      name: string;
+      image_url: string;
+    }[];
+    type: {
+      id: number;
+      name: string;
+    };
+  }[];
   infographic: string | null;
-  program: any[];
   orbital_launch_attempt_count: number;
   location_launch_attempt_count: number;
   pad_launch_attempt_count: number;

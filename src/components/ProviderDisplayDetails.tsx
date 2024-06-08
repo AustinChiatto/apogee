@@ -41,7 +41,10 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
         />
       </Card>
       <div className="grid grid-cols-2 gap-2">
-        <Card className="cols-span-1">
+        <Card
+          className="col-span-1"
+          variant="tall"
+        >
           <CardContent className="pt-[unset] flex-1">
             <ul className="flex flex-col gap-2 h-full">
               {providerStats.map((stat, i) =>
@@ -61,7 +64,7 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
         {/* Provider Image */}
         <Card
           variant="image"
-          className="cols-span-1"
+          className="col-span-1"
         >
           <Image
             src={provider.image}
@@ -73,7 +76,7 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
         </Card>
       </div>
       <div className="grid grid-cols-2 gap-2">
-        <div className="span-cols-1 flex gap-2">
+        <div className="col-span-1 flex gap-2">
           {/* Launch record */}
           <Card>
             <CardHeader
@@ -85,11 +88,11 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
                 {provider.launchCount > 0 && (
                   <>
                     <div
-                      className="bg-success/50 cursor-pointer hover:bg-success/70"
+                      className="bg-success-foreground cursor-pointer"
                       style={{ height: `${launchesSuccessPercent}%` }}
                     ></div>
                     <div
-                      className="bg-danger/50 cursor-pointer hover:bg-danger/70"
+                      className="bg-danger-foreground cursor-pointer"
                       style={{ height: `${launchesFailedPercent}%` }}
                     ></div>
                   </>
@@ -108,11 +111,11 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
                 {provider.landingCount > 0 && (
                   <>
                     <div
-                      className="bg-success/50 cursor-pointer hover:bg-success/70"
+                      className="bg-success-foreground cursor-pointer"
                       style={{ height: `${landingsSuccessPercent}%` }}
                     ></div>
                     <div
-                      className="bg-danger/50 cursor-pointer hover:bg-danger/70"
+                      className="bg-danger-foreground cursor-pointer"
                       style={{ height: `${landingsFailedPercent}%` }}
                     ></div>
                   </>
@@ -121,7 +124,7 @@ const ProviderDisplayDetails = ({ item }: ProviderDisplayDetails) => {
             </CardContent>
           </Card>
         </div>
-        <div className="span-cols-1 flex flex-col gap-2">
+        <div className="col-span-1 flex flex-col gap-2">
           {/* Provider launch vehicles */}
           <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Launch Vehicles" />

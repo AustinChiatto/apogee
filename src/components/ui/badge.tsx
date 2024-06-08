@@ -4,21 +4,18 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  'inline-flex cursor-default items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
     variants: {
       variant: {
         default: 'border-transparent bg-primary text-primary-foreground rounded-full',
-        secondary:
-          'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        destructive:
-          'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
+        secondary: 'border-transparent bg-secondary text-secondary-foreground',
+        destructive: 'border-transparent bg-destructive text-destructive-foreground',
         outline: 'text-foreground',
-        glass:
-          'border-transparent bg-glass-foreground backdrop-blur-xl hover:bg-glass-foreground/35',
-        success: 'border-transparent text-success bg-success/20 rounded-full',
-        warning: 'border-transparent text-warning bg-warning/20 rounded-full',
-        danger: 'border-transparent text-danger bg-danger/20 rounded-full'
+        glass: 'border-transparent bg-gray-600/[.35] backdrop-blur-3xl text-primary',
+        success: 'border-transparent text-success-foreground bg-success rounded-full',
+        warning: 'border-transparent text-warning-foreground bg-warning rounded-full',
+        danger: 'border-transparent text-danger-foreground bg-danger rounded-full'
       }
     },
     defaultVariants: {

@@ -47,7 +47,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
         />
       </Card>
       <div className="grid grid-cols-2 gap-2">
-        <div className="span-cols-1 h-max flex flex-col gap-2">
+        <div className="col-span-1 h-max flex flex-col gap-2">
           {/* Vehicle Configuration */}
           <Card className="gap-8 pb-[1.125rem]">
             <CardHeader preHeading="Configuration">
@@ -80,7 +80,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                 {launchesFailed.map((_, i) => (
                   <span
                     key={i}
-                    className="inline-block w-2 h-2 bg-danger rounded-full"
+                    className="inline-block w-2 h-2 bg-danger-foreground rounded-full"
                   ></span>
                 ))}
                 {launchesNonConsecutive.map((_, i) => (
@@ -92,7 +92,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                 {launchesConsecutive.map((_, i) => (
                   <span
                     key={i}
-                    className="inline-block w-2 h-2 bg-accent rounded-full"
+                    className="inline-block w-2 h-2 bg-accent-foreground rounded-full"
                   ></span>
                 ))}
               </div>
@@ -110,7 +110,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                   {landingsFailed.map((_, i) => (
                     <span
                       key={i}
-                      className="inline-block w-2 h-2 bg-danger rounded-full"
+                      className="inline-block w-2 h-2 bg-danger-foreground rounded-full"
                     ></span>
                   ))}
                   {landingsNonConsecutive.map((_, i) => (
@@ -122,7 +122,7 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
                   {landingsConsecutive.map((_, i) => (
                     <span
                       key={i}
-                      className="inline-block w-2 h-2 bg-accent rounded-full"
+                      className="inline-block w-2 h-2 bg-accent-foreground rounded-full"
                     ></span>
                   ))}
                 </div>
@@ -131,14 +131,17 @@ const VehicleDisplayDetails = ({ item }: VehicleDisplayDetails) => {
           )}
         </div>
         {/* Vehicle Stats */}
-        <Card className="span-cols-1">
+        <Card
+          className="col-span-1"
+          variant="tall"
+        >
           <CardContent className="pt-[unset] flex-1">
             <ul className="grid grid-cols-2 gap-2 h-full">
               {vehicleStats.map((stat, i) =>
                 stat.value ? (
                   <li
                     key={i}
-                    className="cols-span-1 border rounded-md p-4 flex flex-col items-center justify-center gap-1 last-grid-item-odd"
+                    className="col-span-1 border rounded-md p-4 flex flex-col items-center justify-center gap-1 last-grid-item-odd"
                   >
                     <h4 className="heading-sm">{stat.label}</h4>
                     <h5 className="heading-lg leading-none">{stat.value}</h5>

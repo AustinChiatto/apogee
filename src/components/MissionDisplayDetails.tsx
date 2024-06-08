@@ -16,7 +16,8 @@ type MissionDisplayDetails = {
 const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
   const mission = getMissionDetails(item);
   const provider = getProviderDetails(item.launch_service_provider);
-  const statusBgColor = `bg-${getStatusType(mission.statusId)}`;
+  const statusBgColor = `${getStatusType(mission.statusId)}`;
+  const statusFgColor = `${getStatusType(mission.statusId)}-foreground`;
   // attempts
   const currentAttempt = 1;
   const agencyAttempt = mission.attemptsYear;
@@ -45,16 +46,63 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
     setCountryLabel(countryNameShort);
   }, [countryNameShort]);
 
+  // countdown timer
+  const calculateTimeLeft = (targetDate: string) => {
+    const target = new Date(targetDate).getTime();
+    const now = Date.now();
+    const difference = target - now;
+
+    // The zero value of the percentageLeft
+    const totalDuration = 7 * 24 * 60 * 60 * 1000;
+
+    const percentageLeft =
+      difference > 0
+        ? Math.min(Math.max(((totalDuration - difference) / totalDuration) * 100, 0), 100)
+        : 100;
+
+    return {
+      timeLeft: difference > 0 ? Math.floor(difference / 1000) : 0,
+      percentageLeft: Math.round(percentageLeft)
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(mission.net));
+
+  const padZero = (num: number) => {
+    return String(num).padStart(2, '0');
+  };
+
+  const formatTimeLeft = (totalSeconds: number) => {
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${padZero(days)} D ${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+  };
+
+  useEffect(() => {
+    const updateTimer = () => {
+      setTimeLeft(calculateTimeLeft(mission.net));
+    };
+
+    updateTimer();
+
+    const timer = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timer);
+  }, [mission.net]);
+
   return (
     <>
       <figure className="relative max-w-full w-full h-auto aspect-video rounded-lg overflow-hidden border">
         <div className="absolute top-4 left-4 flex gap-2 z-10">
-          <Badge>{provider.type} Launch</Badge>
+          <Badge variant={'glass'}>{provider.type} Launch</Badge>
 
           <Badge
+            variant={'glass'}
             onMouseOver={() => setCountryLabel(countryNameLong)}
             onMouseLeave={() => setCountryLabel(countryNameShort)}
-            className="cursor-default"
           >
             {countryLabel}
           </Badge>
@@ -83,20 +131,24 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
         <Card>
           <CardHeader
             preHeading="Launch Countdown"
-            heading="2D 18:32:08"
+            heading={`${formatTimeLeft(timeLeft.timeLeft)}`}
           >
             <Badge variant={`${getStatusType(mission.statusId)}`}>{mission.statusName}</Badge>
           </CardHeader>
           <CardContent>
-            <div className="w-full bg-muted rounded-full">
-              <div className={`rounded-full w-2/3 h-4 ${statusBgColor}`}></div>
+            <div className="w-full rounded-full overflow-hidden">
+              {/* <div
+                className={`rounded-full h-4 ${statusBgColor}`}
+                style={{ width: `${timeLeft.percentageLeft > 3 ? timeLeft.percentageLeft : 3}%` }}
+              ></div> */}
+              <span className="h-4 w-2 bg-"></span>
             </div>
           </CardContent>
         </Card>
         {/* Launch attempt contributions */}
         <Card>
           <CardHeader
-            preHeading="Launch Contributions"
+            preHeading="Orbital Launch Contributions"
             heading={`${getSafeName({
               nameLong: provider.name,
               nameShort: provider.abbrev,
@@ -117,7 +169,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
                   className="inline-block w-2 h-2 bg-secondary rounded-full"
                 ></span>
               ))}
-              <span className={`inline-block w-2 h-2 rounded-full ${statusBgColor}`}></span>
+              <span className={`inline-block w-2 h-2 rounded-full bg-${statusFgColor}`}></span>
             </div>
           </CardContent>
         </Card>
@@ -130,13 +182,17 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
         />
       </Card>
       <div className="grid grid-cols-2 gap-2">
-        <Card className="span-cols-1">
-          <CardHeader
-            preHeading={`${mission.locationName}`}
-            heading={`${mission.padName}`}
-          />
-        </Card>
-        <div className="span-cols-1 flex flex-col gap-2">
+        {/* Launch location */}
+        <div className="relative rounded-lg col-span-1 min-h-[24rem] overflow-hidden border">
+          <Card className="rounded-md absolute bottom-4 left-4 right-4 h-fit min-h-[unset]">
+            <CardHeader
+              preHeading={`${mission.locationName}`}
+              heading={`${mission.padName}`}
+            />
+          </Card>
+        </div>
+        <div className="col-span-1 flex flex-col gap-2">
+          {/* Destination */}
           <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Destination" />
             <CardContent>
@@ -146,6 +202,7 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
               <p className="font-medium leading-none text-secondary pt-1">{mission.orbitDesc}</p>
             </CardContent>
           </Card>
+          {/* Mission Type */}
           <Card className="pb-[1.125rem]">
             <CardHeader preHeading="Mission Type" />
             <CardContent>
@@ -153,6 +210,35 @@ const MissionDisplayDetails = ({ item }: MissionDisplayDetails) => {
             </CardContent>
           </Card>
         </div>
+        {/* Program */}
+        {item.program[0] && (
+          <section className="flex justify-between col-span-2 min-h-[9rem] bg-card p-6 rounded-lg overflow-hidden">
+            <div className="flex flex-col justify-between">
+              <CardHeader
+                preHeading="Program"
+                heading={`${item.program?.[0]?.name}`}
+              />
+              <CardContent>
+                <p className="font-medium leading-none text-secondary pt-1">
+                  {item.program?.[0]?.type.name}
+                </p>
+              </CardContent>
+            </div>
+            {item.program?.[0]?.mission_patches?.[0]?.image_url && (
+              <div className="h-full flex items-center">
+                <figure className="w-24 relative aspect-square grid place-items-center">
+                  <Image
+                    src={item.program?.[0]?.mission_patches?.[0]?.image_url}
+                    alt="todo:"
+                    sizes="5vw"
+                    fill
+                    style={{ objectFit: 'contain', objectPosition: 'center' }}
+                  />
+                </figure>
+              </div>
+            )}
+          </section>
+        )}
       </div>
     </>
   );

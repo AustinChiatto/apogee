@@ -37,7 +37,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
                 key={mission.id}
                 className={`border relative overflow-hidden rounded-lg p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
                   mission.id === selectedMissionId &&
-                  'border-[transparent] ring-2 ring-glass-foreground ring-offset-4 ring-offset-background'
+                  'border-[transparent] ring-2 ring-ring/25 ring-offset-4 ring-offset-background'
                 }`}
                 onMouseMove={handleMouseMove}
                 onClick={() => setSelectedMissionId(mission.id)}
