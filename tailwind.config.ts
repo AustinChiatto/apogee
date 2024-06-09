@@ -85,7 +85,15 @@ const config = {
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           foreground: 'hsl(var(--danger-foreground))'
-        }
+        },
+        red: 'hsl(var(--red))',
+        orange: 'hsl(var(--orange))',
+        yellow: 'hsl(var(--yellow))',
+        green: 'hsl(var(--green))',
+        blue: 'hsl(var(--blue))',
+        purple: 'hsl(var(--purple))',
+        magenta: 'hsl(var(--magenta))',
+        cyan: 'hsl(var(--cyan))'
       },
       borderRadius: {
         lg: 'var(--radius)',

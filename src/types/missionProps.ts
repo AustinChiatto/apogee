@@ -270,3 +270,7 @@ export type Mission = {
 export type MissionResponse = {
   results: Mission[];
 };
+
+export type Item = {
+  item: Mission;
+};

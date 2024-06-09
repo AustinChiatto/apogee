@@ -3,9 +3,9 @@ import { useSelectedMission } from '@/hooks/use-mission-data';
 import { Mission } from '@/types/missionProps';
 import { getStatusType, translateDate } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
-import MissionDisplayDetails from './MissionDisplayDetails';
-import VehicleDisplayDetails from './VehicleDisplayDetails';
-import ProviderDisplayDetails from './ProviderDisplayDetails';
+import MissionDisplayContent from './display-content/MissionDisplayContent';
+import VehicleDisplayContent from './display-content/VehicleDisplayContent';
+import ProviderDisplayContent from './display-content/ProviderDisplayContent';
 import { getMissionDetails } from '@/lib/missionUtils';
 
 const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] } }> = ({
@@ -22,8 +22,7 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
   }
 
   const mission = getMissionDetails(item);
-
-  const displayComponents = [MissionDisplayDetails, VehicleDisplayDetails, ProviderDisplayDetails];
+  const displayComponents = [MissionDisplayContent, VehicleDisplayContent, ProviderDisplayContent];
 
   const displayHeader = (
     <div className="sticky top-0 left-0 right-0 flex items-center justify-between h-[4.5rem] z-20 bg-background">
