@@ -12,6 +12,7 @@ type Icon = {
     | 'sparkle'
     | 'user'
     | 'xMark'
+    | 'secondary'
     | 'question'
     | 'userId';
   fill?: string;
@@ -49,6 +50,22 @@ const icons = {
     </svg>
   ),
   warning: (
+    <svg
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      height="13"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M0 7.5a7.5 7.5 0 1115 0 7.5 7.5 0 01-15 0zM4 8h7V7H4v1z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  ),
+  secondary: (
     <svg
       viewBox="0 0 15 15"
       fill="none"
@@ -270,7 +287,7 @@ const icons = {
 };
 
 const Icon = ({ name, fill = 'primary' }: Icon) => {
-  return <span className={`w-8 h-8 grid place-items-center fill-${fill}`}>{icons[name]}</span>;
+  return <span className={`w-4 h-4 grid place-items-center fill-${fill}`}>{icons[name]}</span>;
 };
 
 export default Icon;

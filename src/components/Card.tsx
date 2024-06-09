@@ -11,7 +11,7 @@ interface CardProps extends BaseProps {
 
 type CardHeaderProps = {
   preHeading?: string;
-  heading?: string;
+  heading?: string | ReactNode;
   children?: ReactNode;
   isTitle?: boolean;
 };
