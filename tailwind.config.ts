@@ -26,7 +26,16 @@ const config = {
     'text-success-foreground',
     'text-warning-foreground',
     'text-danger-foreground',
-    'text-secondary-foreground'
+    'text-secondary-foreground',
+    'fill-success',
+    'fill-warning',
+    'fill-danger',
+    'fill-orange',
+    'fill-purple',
+    'fill-primary',
+    'fill-primary-foreground',
+    'fill-secondary-foreground',
+    'fill-secondary-foreground'
   ],
   theme: {
     container: {

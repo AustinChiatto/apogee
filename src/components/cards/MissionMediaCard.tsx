@@ -5,6 +5,7 @@ import { Item } from '@/types/missionProps';
 import { getMissionDetails, getProviderDetails } from '@/lib/missionUtils';
 import { getName, registerLocale } from 'i18n-iso-countries';
 import enLocale from 'i18n-iso-countries/langs/en.json';
+import Icon from '../Icon';
 registerLocale(enLocale);
 
 const MissionMediaCard = ({ item }: Item) => {
@@ -56,7 +57,9 @@ const MissionMediaCard = ({ item }: Item) => {
             href={`${mission.vidUrl}`}
             className="flex gap-4 items-center pr-2"
           >
-            <div className="h-10 aspect-video rounded-sm bg-accent"></div>
+            <div className="h-10 aspect-video rounded-sm bg-accent-foreground grid place-items-center">
+              <Icon name="play" />
+            </div>
             Watch Now
           </a>
         </div>
