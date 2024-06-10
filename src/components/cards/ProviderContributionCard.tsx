@@ -1,46 +1,57 @@
 import { Item } from '@/types/missionProps';
 import { Card, CardContent, CardHeader } from '../Card';
 import { getMissionDetails, getProviderDetails } from '@/lib/missionUtils';
-import { getSafeName, getStatusType } from '@/lib/utils';
+import { createArray, getSafeName, getStatusType } from '@/lib/utils';
+import AttemptMarker from '../AttemptMarker';
+import { Badge } from '../ui/badge';
 
 const ProviderContributionCard = ({ item }: Item) => {
   const mission = getMissionDetails(item);
   const provider = getProviderDetails(item.launch_service_provider);
-  const statusFgColor = `${getStatusType(mission.statusId)}-foreground`;
   // attempts
   const currentAttempt = 1;
-  const agencyAttempt = mission.attemptsYear;
   const totalAttemptsCount = mission.orbitalCountYear;
-  const nonAgencyAttempts = totalAttemptsCount - agencyAttempt;
-  const remainingAgencyAttempts = Math.max(0, agencyAttempt - currentAttempt);
-  const agencyAttempts = Array.from({ length: remainingAgencyAttempts });
-  const totalAttempts = Array.from({ length: nonAgencyAttempts });
+  const nonAgencyAttempts = createArray(totalAttemptsCount - mission.attemptsYear);
+  const remainingAgencyAttempts = createArray(Math.max(0, mission.attemptsYear - currentAttempt));
+
+  const getOrdinalSuffix = (number: number): string => {
+    const j = number % 10;
+    const k = number % 100;
+
+    if (j === 1 && k !== 11) return `${number}st`;
+    if (j === 2 && k !== 12) return `${number}nd`;
+    if (j === 3 && k !== 13) return `${number}rd`;
+
+    return `${number}th`;
+  };
 
   return (
     <Card>
       <CardHeader
-        preHeading="Orbital Launch Contributions"
+        preHeading={`${new Date().getFullYear()} Orbital Attempts`}
         heading={`${getSafeName({
           nameLong: provider.name,
           nameShort: provider.abbrev,
           maxLength: 15
         })}`}
-      ></CardHeader>
+      >
+        <Badge variant={'glass'}>{getOrdinalSuffix(mission.attemptsYear)} Launch</Badge>
+      </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-[1px]">
-          {totalAttempts.map((_, i) => (
-            <span
+          {nonAgencyAttempts.map((_, i) => (
+            <AttemptMarker
               key={i}
-              className="inline-block w-4 h-2 bg-muted rounded-full"
-            ></span>
+              variant="muted"
+            />
           ))}
-          {agencyAttempts.map((_, i) => (
-            <span
+          {remainingAgencyAttempts.map((_, i) => (
+            <AttemptMarker
               key={i}
-              className="inline-block w-4 h-2 bg-secondary rounded-full"
-            ></span>
+              variant="secondary"
+            />
           ))}
-          <span className={`inline-block w-4 h-2 rounded-full bg-${statusFgColor}`}></span>
+          <AttemptMarker variant={getStatusType(mission.statusId)} />
         </div>
       </CardContent>
     </Card>

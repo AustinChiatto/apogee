@@ -112,3 +112,58 @@ export const orbitDescriptions = [
     descriptions: 'Orbit around Jupiter.'
   }
 ];
+
+/* group orbits 
+
+	===
+	EARTH ORBITS
+	===
+	
+	---
+	<= 2,000 km
+	Suborbital: 0-160
+	LEO: 160 - 2,000
+	SSO: 600 - 800
+	PO: 200 - 1,000
+
+	---
+	200 km - 35,786 km
+	GTO
+	GSTO
+
+	---
+	2,000 km - 35,786 km
+	MEO: 2,000 - 35,786
+
+	---
+	>= 35,786
+	HEO
+	Super-GTO
+	Enhanced-GTO
+	GEO
+
+	===
+	NON EARTH Destinations
+	===
+
+	Lunar
+	Asteroid
+	L1/L2 points
+	Mars
+	Venus
+	Mercury
+	Jupiter	
+	*/
+
+// DestinationPointId
+// 1 === Lower Earth Orbit
+// 2 === Middle Earth Orbit
+// 3 === High Earth Orbit
+// 4 === Special Point
+// 5 === Lunar
+// 6 === Asteroid
+// 7 === Mars
+// 8 === Venus
+// 9 === Mercury
+// 10 === Jupiter
+// 11 === Escape Trajectories

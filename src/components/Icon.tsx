@@ -16,6 +16,7 @@ type Icon = {
     | 'question'
     | 'userId';
   fill?: string;
+  size?: 'small' | 'medium' | 'large';
 };
 
 const icons = {
@@ -26,6 +27,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         d="M12 2h1.5A1.5 1.5 0 0115 3.5v10a1.5 1.5 0 01-1.5 1.5h-12A1.5 1.5 0 010 13.5v-10A1.5 1.5 0 011.5 2H3V0h1v2h7V0h1v2z"
@@ -40,6 +42,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -54,8 +57,9 @@ const icons = {
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width="13"
-      height="13"
+      width="15"
+      height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -72,6 +76,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -88,6 +93,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -104,6 +110,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -120,6 +127,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         d="M4.79 2.093A.5.5 0 004 2.5v10a.5.5 0 00.79.407l7-5a.5.5 0 000-.814l-7-5z"
@@ -134,12 +142,11 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M0 7.5a7.5 7.5 0 1115 0 7.5 7.5 0 01-15 0zM7 11V8H4V7h3V4h1v3h3v1H8v3H7z"
-        fill="currentColor"
+        d="M7.5 1v13M1 7.5h13"
+        stroke="currentColor"
       ></path>
     </svg>
   ),
@@ -147,6 +154,7 @@ const icons = {
     <svg
       width="8"
       height="8"
+      className="w-full h-full"
       viewBox="0 0 8 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -162,6 +170,7 @@ const icons = {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full"
     >
       <path
         d="M9.11408 3.00084C9.11408 2.3855 8.61525 1.88667 7.99991 1.88667C7.38457 1.88667 6.88574 2.3855 6.88574 3.00084V8.01167C6.88574 8.62701 7.38457 9.12584 7.99991 9.12584C8.61525 9.12584 9.11408 8.62701 9.11408 8.01167V3.00084Z"
@@ -215,6 +224,7 @@ const icons = {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full"
     >
       <path
         d="M7.53363 1.32722C7.56843 1.23134 7.63191 1.14849 7.71543 1.08995C7.79896 1.03141 7.89849 1 8.0005 1C8.1025 1 8.20203 1.03141 8.28556 1.08995C8.36909 1.14849 8.43257 1.23134 8.46737 1.32722L8.94219 2.62453C9.3141 3.6418 9.90358 4.56564 10.6695 5.33153C11.4354 6.09742 12.3592 6.6869 13.3765 7.05881L14.6728 7.53363C14.7687 7.56843 14.8515 7.63191 14.9101 7.71543C14.9686 7.79896 15 7.89849 15 8.0005C15 8.1025 14.9686 8.20203 14.9101 8.28556C14.8515 8.36909 14.7687 8.43257 14.6728 8.46737L13.3765 8.94219C12.3592 9.3141 11.4354 9.90358 10.6695 10.6695C9.90358 11.4354 9.3141 12.3592 8.94219 13.3765L8.46737 14.6728C8.43257 14.7687 8.36909 14.8515 8.28556 14.9101C8.20203 14.9686 8.1025 15 8.0005 15C7.89849 15 7.79896 14.9686 7.71543 14.9101C7.63191 14.8515 7.56843 14.7687 7.53363 14.6728L7.05881 13.3765C6.6869 12.3592 6.09742 11.4354 5.33153 10.6695C4.56564 9.90358 3.6418 9.3141 2.62453 8.94219L1.32722 8.46737C1.23134 8.43257 1.14849 8.36909 1.08995 8.28556C1.03141 8.20203 1 8.1025 1 8.0005C1 7.89849 1.03141 7.79896 1.08995 7.71543C1.14849 7.63191 1.23134 7.56843 1.32722 7.53363L2.62453 7.05881C3.6418 6.6869 4.56564 6.09742 5.33153 5.33153C6.09742 4.56564 6.6869 3.6418 7.05881 2.62453L7.53363 1.32722Z"
@@ -229,6 +239,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         d="M7.5 0a3.499 3.499 0 100 6.996A3.499 3.499 0 107.5 0zm-2 8.994a3.5 3.5 0 00-3.5 3.5v2.497h11v-2.497a3.5 3.5 0 00-3.5-3.5h-4z"
@@ -243,6 +254,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -259,6 +271,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="30"
       height="30"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -275,6 +288,7 @@ const icons = {
       xmlns="http://www.w3.org/2000/svg"
       width="30"
       height="30"
+      className="w-full h-full"
     >
       <path
         fill-rule="evenodd"
@@ -286,8 +300,11 @@ const icons = {
   )
 };
 
-const Icon = ({ name, fill = 'primary' }: Icon) => {
-  return <span className={`w-4 h-4 grid place-items-center fill-${fill}`}>{icons[name]}</span>;
+const Icon = ({ name, fill = 'primary', size = 'medium' }: Icon) => {
+  const sizeValues = size == 'small' ? 'w-3 h-3' : size == 'large' ? 'w-6 h-6' : 'w-4 h-4';
+  return (
+    <span className={`${sizeValues} grid place-items-center fill-${fill}`}>{icons[name]}</span>
+  );
 };
 
 export default Icon;

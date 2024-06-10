@@ -82,16 +82,12 @@ const MissionCountdownCard = ({ item }: Item) => {
         preHeading="Launch Countdown"
         heading={formatTimeLeft(timeState.timeLeft)}
       >
-        <Badge
-          variant={status}
-          className="pl-1"
-        >
-          <span className="pr-2">
-            <Icon
-              name={status}
-              fill={statusFgColor}
-            />
-          </span>
+        <Badge variant={status}>
+          <Icon
+            name={status}
+            fill={statusFgColor}
+            size="small"
+          />
           {mission.statusName}
         </Badge>
       </CardHeader>
