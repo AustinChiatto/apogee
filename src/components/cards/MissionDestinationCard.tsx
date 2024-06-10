@@ -9,8 +9,8 @@ const MissionDestinationCard = ({ item }: Item) => {
 
   const earthOrbits = (
     <>
-      <div className="w-[20%] h-full p-2 flex gap-2 bg-purple/20 rounded-full">
-        <div className="h-full aspect-square rounded-full bg-blue"></div>
+      <div className="w-[20%] h-full p-2 flex gap-2 bg-purple/15 rounded-full">
+        <div className="h-full aspect-square rounded-full bg-accent-foreground"></div>
         <div className="flex-1 rounded-full bg-purple"></div>
       </div>
       <div className="flex-1 p-2 bg-purple/20 rounded-full">
@@ -20,7 +20,7 @@ const MissionDestinationCard = ({ item }: Item) => {
   );
 
   return (
-    <Card>
+    <Card className="pb-[1.125rem]">
       <CardHeader heading={mission.orbitName}>
         <Badge variant={'learnMore'}>
           <Icon
@@ -32,7 +32,7 @@ const MissionDestinationCard = ({ item }: Item) => {
         </Badge>
       </CardHeader>
       <CardContent>
-        <div className="relative flex h-8 w-full rounded-full overflow-hidden bg-purple/20">
+        <div className="relative flex h-7 w-full rounded-full overflow-hidden bg-purple/20">
           {earthOrbits}
         </div>
         <p className="font-sm leading-none text-center text-purple pt-3">{mission.orbitDesc}</p>
