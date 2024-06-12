@@ -15,7 +15,7 @@ const MissionProgramCard = ({ item }: Item) => {
             name="plus"
             size="small"
             fill="purple"
-          />{' '}
+          />
           More
         </Badge>
       </CardHeader>

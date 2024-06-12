@@ -4,6 +4,7 @@ import { getVehicleDetails } from '@/lib/missionUtils';
 import { Badge } from '../ui/badge';
 import VehicleRecordCard from '../cards/VehicleRecordCard';
 import VehicleStatCard from '../cards/VehicleStatCard';
+import Icon from '../Icon';
 
 type VehicleDisplayContent = {
   item: Mission;
@@ -32,7 +33,16 @@ const VehicleDisplayContent = ({ item }: VehicleDisplayContent) => {
           {/* Vehicle Configuration */}
           <Card className="gap-8 pb-[1.125rem]">
             <CardHeader preHeading="Configuration">
-              {vehicle.reusable && <Badge className="text-purple bg-purple/20">Reusable</Badge>}
+              {vehicle.reusable && (
+                <Badge variant={'feature'}>
+                  <Icon
+                    name="recycle"
+                    fill="orange"
+                    size="small"
+                  />
+                  Reusable
+                </Badge>
+              )}
             </CardHeader>
             <CardContent>
               <ul className="flex gap-6">

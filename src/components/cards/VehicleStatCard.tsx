@@ -1,6 +1,8 @@
 import { Item } from '@/types/missionProps';
-import { Card, CardContent } from '../Card';
+import { Card, CardContent, CardHeader } from '../Card';
 import { getVehicleDetails } from '@/lib/missionUtils';
+import { Badge } from '../ui/badge';
+import Icon from '../Icon';
 
 const VehicleStatCard = ({ item }: Item) => {
   const vehicle = getVehicleDetails(item.rocket);
@@ -19,7 +21,17 @@ const VehicleStatCard = ({ item }: Item) => {
       className="col-span-1"
       variant="tall"
     >
-      <CardContent className="pt-[unset] flex-1">
+      <CardHeader heading="Vehicle Details">
+        <Badge variant={'learnMore'}>
+          <Icon
+            name="plus"
+            size="small"
+            fill="purple"
+          />
+          More
+        </Badge>
+      </CardHeader>
+      <CardContent className="flex-1">
         <ul className="grid grid-cols-2 gap-2 h-full">
           {vehicleStats.map((stat, i) =>
             stat.value ? (

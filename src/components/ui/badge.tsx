@@ -13,11 +13,11 @@ const badgeVariants = cva(
         destructive: 'bg-destructive text-destructive-foreground',
         outline: 'text-foreground',
         glass: 'bg-gray-600/[.35] backdrop-blur-3xl text-primary',
-        success: 'text-success-foreground bg-success pl-1.5 flex gap-2',
-        warning: 'text-warning-foreground bg-warning pl-1.5 flex gap-2',
-        danger: 'text-danger-foreground bg-danger pl-1.5 flex gap-2',
-        feature: 'text-orange bg-orange/20',
-        learnMore: 'text-purple bg-purple/20 pl-1.5 flex gap-2'
+        success: 'text-success-foreground bg-success flex gap-2',
+        warning: 'text-warning-foreground bg-warning flex gap-2',
+        danger: 'text-danger-foreground bg-danger flex gap-2',
+        feature: 'text-orange bg-orange/20 flex gap-2',
+        learnMore: 'text-purple bg-purple/20 flex gap-2'
       }
     },
     defaultVariants: {

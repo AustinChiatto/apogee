@@ -1,34 +1,53 @@
 import { Item } from '@/types/missionProps';
-import { Card, CardContent } from '../Card';
+import { Card, CardContent, CardHeader } from '../Card';
 import { getProviderDetails } from '@/lib/missionUtils';
+import { Badge } from '../ui/badge';
+import Icon, { Icons } from '../Icon';
+
+type StatProps = {
+  iconName: Icons['name'];
+  label: string;
+  value: string;
+};
 
 const ProviderDetailsCard = ({ item }: Item) => {
   const provider = getProviderDetails(item.launch_service_provider);
 
-  const providerStats = [
-    { label: 'Administrator', value: provider.administrator },
-    { label: 'Type', value: provider.type },
-    { label: 'Founding Year', value: provider.foundingYear }
+  const providerStats: StatProps[] = [
+    { iconName: 'user', label: 'Administrator', value: provider.administrator },
+    { iconName: 'globe', label: 'Type', value: provider.type },
+    { iconName: 'calendar', label: 'Founding Year', value: provider.foundingYear }
   ];
 
   return (
-    <Card
-      className="col-span-1"
-      variant="tall"
-    >
-      <CardContent className="pt-[unset] flex-1">
-        <ul className="flex flex-col gap-2 h-full">
-          {providerStats.map((stat, i) =>
-            stat.value ? (
-              <li
-                key={i}
-                className="flex-1 border rounded-md p-4 py-6 flex flex-col items-center justify-center gap-1 last-grid-item-odd"
-              >
-                <h4 className="heading-sm">{stat.label}</h4>
-                <h5 className="heading-lg">{stat.value}</h5>
-              </li>
-            ) : null
-          )}
+    <Card className="pb-[1.125rem]">
+      <CardHeader heading={item.program?.[0] ? 'Mission & Program' : 'Mission Details'}>
+        <Badge variant={'learnMore'}>
+          <Icon
+            name="plus"
+            size="small"
+            fill="purple"
+          />
+          More
+        </Badge>
+      </CardHeader>
+      <CardContent>
+        <ul className="w-full flex flex-col gap-1">
+          {providerStats.map((stat, i) => (
+            <li
+              key={i}
+              className="flex-1 flex justify-between items-center"
+            >
+              <span className="flex items-center gap-2">
+                <Icon
+                  name={stat.iconName}
+                  fill="secondary"
+                />
+                <p className="text-secondary">{stat.label}</p>
+              </span>
+              <p className="text-card-foreground">{stat.value}</p>
+            </li>
+          ))}
         </ul>
       </CardContent>
     </Card>
