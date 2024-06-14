@@ -8,14 +8,10 @@ import VehicleDisplayContent from './display-content/VehicleDisplayContent';
 import ProviderDisplayContent from './display-content/ProviderDisplayContent';
 import { getMissionDetails } from '@/lib/missionUtils';
 
-const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] } }> = ({
-  items
-}) => {
+const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] } }> = ({ items }) => {
   const { selectedMissionId } = useSelectedMission();
   const { upcoming, previous } = items;
-  const item =
-    upcoming.find((mission) => mission.id === selectedMissionId) ||
-    previous.find((mission) => mission.id === selectedMissionId);
+  const item = upcoming.find((mission) => mission.id === selectedMissionId) || previous.find((mission) => mission.id === selectedMissionId);
 
   if (!item) {
     return <p>Mission not found</p>;
@@ -30,16 +26,14 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
         <div className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}`}></div>
         <h3 className="heading-xl">{mission.name ?? 'NAME NULL'}</h3>
       </div>
-      <div className="bg-foreground text-background px-2 rounded">
-        {mission.net ? translateDate(mission.net) : 'TBC'}
-      </div>
+      <div className="bg-foreground text-background px-2 rounded">{mission.net ? translateDate(mission.net) : 'TBC'}</div>
     </div>
   );
 
   return (
     <>
       <ScrollArea className="h-full pr-4">
-        <div className="max-w-[69rem] mx-auto pb-16">
+        <div className="max-w-[69rem] mx-auto">
           {displayHeader}
           <div className="flex-1 pb-4 pt-0 flex flex-col gap-2">
             {displayComponents.map((Component, i) => (
@@ -51,6 +45,22 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
               </section>
             ))}
           </div>
+        </div>
+        <div className="pt-12 pb-6 text-muted text-center">
+          Built by{' '}
+          <a
+            href="#"
+            className="text-secondary hover:text-accent-foreground"
+          >
+            Austin
+          </a>{' '}
+          with data from{' '}
+          <a
+            href="#"
+            className="text-secondary hover:text-accent-foreground"
+          >
+            LL2
+          </a>
         </div>
       </ScrollArea>
     </>

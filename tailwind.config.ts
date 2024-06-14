@@ -15,6 +15,8 @@ const config = {
     'bg-warning',
     'bg-danger',
     'bg-secondary',
+    'bg-accent',
+    'bg-accent-foreground',
     'text-success',
     'text-warning',
     'text-danger',

@@ -32,7 +32,7 @@ const MissionMediaCard = ({ item }: Item) => {
   }, [countryNameShort]);
 
   return (
-    <figure className="relative max-w-full w-full h-auto aspect-video rounded-lg overflow-hidden border">
+    <figure className="relative max-w-full w-full h-auto aspect-video rounded-lg overflow-hidden border border-[0.375rem] border-card">
       <div className="absolute top-4 left-4 flex gap-2 z-10">
         <Badge variant={'glass'}>{provider.type} Launch</Badge>
 

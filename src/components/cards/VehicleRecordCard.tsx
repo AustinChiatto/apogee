@@ -10,20 +10,19 @@ type Props = {
 
 const VehicleRecordCard = ({ item, type }: Props) => {
   const vehicle = getVehicleDetails(item.rocket);
-  const launchesNonConsecutive = createArray(
-    vehicle.launchSuccessCount - vehicle.launchConsecutiveCount
-  );
+  const preHeading = `${vehicle.name} ${type}`;
+  const heading = type == 'launches' ? vehicle.launchCount : vehicle.landingCount;
+
+  const launchesNonConsecutive = createArray(vehicle.launchSuccessCount - vehicle.launchConsecutiveCount);
   const launchesConsecutive = createArray(vehicle.launchConsecutiveCount);
   const launchesFailed = createArray(vehicle.launchFailedCount);
-  const landingsNonConsecutive = createArray(
-    vehicle.landingSuccessCount - vehicle.landingConsecutiveCount
-  );
+  const landingsNonConsecutive = createArray(vehicle.landingSuccessCount - vehicle.landingConsecutiveCount);
   const landingsConsecutive = createArray(vehicle.landingConsecutiveCount);
   const landingsFailed = createArray(vehicle.landingFailedCount);
 
   // todo: reduce repetition between launches & landings
   const launches = (
-    <div className="flex flex-wrap gap-[1px]">
+    <>
       {launchesFailed.map((_, i) => (
         <span
           key={i}
@@ -42,11 +41,11 @@ const VehicleRecordCard = ({ item, type }: Props) => {
           className="inline-block w-4 h-2 bg-accent-foreground rounded-full"
         ></span>
       ))}
-    </div>
+    </>
   );
 
   const landings = (
-    <div className="flex flex-wrap gap-[1px]">
+    <>
       {landingsFailed.map((_, i) => (
         <span
           key={i}
@@ -65,16 +64,18 @@ const VehicleRecordCard = ({ item, type }: Props) => {
           className="inline-block w-4 h-2 bg-accent-foreground rounded-full"
         ></span>
       ))}
-    </div>
+    </>
   );
 
   return (
     <Card>
       <CardHeader
-        preHeading={`${vehicle.name} ${type}`}
-        heading={`${vehicle.launchCount}`}
+        preHeading={preHeading}
+        heading={heading > 0 ? heading : 'No Known Attempts'}
       />
-      <CardContent className="pt-6">{type == 'launches' ? launches : landings}</CardContent>
+      <CardContent className="pt-6">
+        <div className="flex flex-wrap gap-[1px]">{type == 'launches' ? launches : landings}</div>
+      </CardContent>
     </Card>
   );
 };

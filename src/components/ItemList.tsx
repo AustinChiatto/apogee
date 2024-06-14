@@ -36,8 +36,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
               <button
                 key={mission.id}
                 className={`border relative overflow-hidden rounded-lg p-0 bg-card text-card-foreground w-full aspect-square transition-all missionCard ${
-                  mission.id === selectedMissionId &&
-                  'border-[transparent] ring-2 ring-ring/25 ring-offset-4 ring-offset-background'
+                  mission.id === selectedMissionId && 'border-[transparent] ring-2 ring-ring/25 ring-offset-4 ring-offset-background'
                 }`}
                 onMouseMove={handleMouseMove}
                 onClick={() => setSelectedMissionId(mission.id)}
@@ -52,9 +51,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
                   />
                 </div>
                 <div className="absolute top-0 right-0 bottom-0 left-0 p-4 flex flex-col justify-between overlay rounded-2xl">
-                  <div className="flex align-center justify-end">
-                    {mission.type && <Badge variant={'glass'}>{mission.type}</Badge>}
-                  </div>
+                  <div className="flex align-center justify-end">{mission.type && <Badge variant={'glass'}>{mission.type}</Badge>}</div>
                   <div className="text-left">
                     <Badge
                       variant={'glass'}
@@ -64,9 +61,7 @@ const ItemList: React.FC<{ items: Mission[] }> = ({ items }) => {
                     </Badge>
                     <h3 className="heading-lg">{mission.name}</h3>
                     <div className="flex items-center gap-2">
-                      <p className="inline-block text-sm tracking-tight truncate max-w-[15ch]">
-                        {providerName}
-                      </p>
+                      <p className="inline-block text-sm tracking-tight truncate max-w-[15ch]">{providerName}</p>
                       &middot;
                       <p className="inline-block text-sm tracking-tight">{vehicleName}</p>
                     </div>

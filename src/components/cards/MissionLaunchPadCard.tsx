@@ -6,7 +6,7 @@ const MissionLaunchPadCard = ({ item }: Item) => {
   const mission = getMissionDetails(item);
 
   return (
-    <div className="relative rounded-lg col-span-1 min-h-[24rem] overflow-hidden border">
+    <div className="relative rounded-lg col-span-1 min-h-[24rem] overflow-hidden border border-[0.375rem] border-card">
       <Card className="rounded-md absolute bottom-4 left-4 right-4 h-fit min-h-[unset]">
         <CardHeader
           preHeading={`${mission.locationName}`}

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from '../Card';
 import { getProviderDetails } from '@/lib/missionUtils';
 import { Badge } from '../ui/badge';
 import Icon, { Icons } from '../Icon';
+import { getSafeName } from '@/lib/utils';
 
 type StatProps = {
   iconName: Icons['name'];
@@ -21,7 +22,13 @@ const ProviderDetailsCard = ({ item }: Item) => {
 
   return (
     <Card className="pb-[1.125rem]">
-      <CardHeader heading={item.program?.[0] ? 'Mission & Program' : 'Mission Details'}>
+      <CardHeader
+        heading={`${getSafeName({
+          nameLong: provider.name,
+          nameShort: provider.abbrev,
+          maxLength: 15
+        })} Details`}
+      >
         <Badge variant={'learnMore'}>
           <Icon
             name="plus"

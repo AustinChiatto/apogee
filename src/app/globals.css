@@ -73,8 +73,8 @@
     --input: 240 1% 15%;
     --ring: 0 0% 88%;
     --radius: 1.5rem;
-    --success: 90 35% 15%;
-    --success-foreground: 90 100% 71%;
+    --success: 105 35% 15%;
+    --success-foreground: 105 100% 71%;
     --warning: 55 55% 13%;
     --warning-foreground: 55 100% 59%;
     --danger: 356 45% 13%;
@@ -103,13 +103,7 @@
 }
 
 .overlay {
-  border-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 15%,
-      rgba(0, 0, 0, 0.15) 50%
-    )
-    fill 1;
+  border-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0.15) 50%) fill 1;
 }
 
 .visuallyHidden {
@@ -139,11 +133,7 @@
   left: 0;
   z-index: 3;
   opacity: 0;
-  background: radial-gradient(
-    25rem at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.125) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: radial-gradient(25rem at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.125) 0%, rgba(255, 255, 255, 0) 100%);
   transition: opacity 500ms;
   pointer-events: none;
 }
