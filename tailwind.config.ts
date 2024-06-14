@@ -3,12 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}'
-  ],
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   prefix: '',
   safelist: [
     'bg-success',
@@ -109,7 +104,7 @@ const config = {
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 0.5rem)',
-        sm: 'calc(var(--radius) - 0.875rem)'
+        sm: 'calc(var(--radius) - 0.75rem)'
       },
       keyframes: {
         'accordion-down': {

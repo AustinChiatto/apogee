@@ -31,7 +31,7 @@ const Home = async () => {
                   <h4 className="heading-lg">Missions</h4>
                   <TabsList className="ml-auto">
                     <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-                    <TabsTrigger value="previous">Previous</TabsTrigger>
+                    <TabsTrigger value="previous">Recent</TabsTrigger>
                   </TabsList>
                 </div>
                 <TabsContent

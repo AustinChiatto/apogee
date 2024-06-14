@@ -21,20 +21,15 @@ const ProviderDisplayContent = ({ item }: ProviderDisplayContent) => {
         />
       </Card>
       <div className="grid grid-cols-2 gap-2">
-        <div className="flex flex-col gap-2">
-          <ProviderDetailsCard item={item} />
-          <ProviderDetailsCard item={item} />
-        </div>
-        <div className="flex flex-col gap-2">
-          <ProviderRecordCard
-            item={item}
-            type="launches"
-          />
-          <ProviderRecordCard
-            item={item}
-            type="landings"
-          />
-        </div>
+        <ProviderDetailsCard item={item} />
+        <ProviderRecordCard
+          item={item}
+          type="launches"
+        />
+        <ProviderRecordCard
+          item={item}
+          type="landings"
+        />
       </div>
     </>
   );

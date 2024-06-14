@@ -63,7 +63,7 @@
     --secondary-foreground: 235 71% 50%;
     --card: 240 10% 8%;
     --card-foreground: 0 0% 88%;
-    --muted: 240 2% 28%;
+    --muted: 240 4% 28%;
     --muted-foreground: 0 0% 88%;
     --popover: 240 10% 8%;
     --popover-foreground: 0 0% 88%;
@@ -140,4 +140,29 @@
 
 .last-grid-item-odd:nth-last-child(1):nth-child(odd) {
   grid-column: span 2;
+}
+
+/* map attribution */
+.leaflet-control-attribution {
+  background: transparent !important;
+  color: hsl(var(--muted)) !important;
+  padding-right: 1rem !important;
+  font-size: 0.625rem !important;
+}
+
+.leaflet-control-attribution a {
+  color: hsl(var(--secondary)) !important;
+}
+
+.leaflet-control-attribution a:hover {
+  text-decoration: none !important;
+}
+
+svg.leaflet-attribution-flag {
+  display: none !important;
+}
+
+.map-container,
+.leaflet-container {
+  background: hsl(var(--card)) !important;
 }
