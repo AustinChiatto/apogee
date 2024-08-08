@@ -13,28 +13,24 @@ const MissionDestinationCard = ({ item }: Item) => {
         <div className="h-full aspect-square rounded-full bg-accent-foreground"></div>
         <div className="flex-1 rounded-full bg-purple"></div>
       </div>
-      <div className="flex-1 p-2 bg-purple/20 rounded-full">
-        {/* <div className="h-full rounded-full bg-purple"></div> */}
-      </div>
+      <div className="flex-1 p-2 bg-purple/20 rounded-full">{/* <div className="h-full rounded-full bg-purple"></div> */}</div>
     </>
   );
 
   return (
     <Card className="pb-[1.125rem]">
       <CardHeader heading={mission.orbitName}>
-        <Badge variant={'learnMore'}>
+        {/* <Badge variant={'learnMore'}>
           <Icon
             name="plus"
             size="small"
             fill="purple"
           />{' '}
           More
-        </Badge>
+        </Badge> */}
       </CardHeader>
       <CardContent>
-        <div className="relative flex h-7 w-full rounded-full overflow-hidden bg-purple/20">
-          {earthOrbits}
-        </div>
+        <div className="relative flex h-7 w-full rounded-full overflow-hidden bg-purple/20">{earthOrbits}</div>
         <p className="font-sm leading-none text-center text-purple pt-3">{mission.orbitDesc}</p>
       </CardContent>
     </Card>

@@ -1,6 +1,8 @@
 import { Mission } from '@/types/missionProps';
 import { Card, CardContent, CardHeader } from '../Card';
 import { getProviderDetails } from '@/lib/missionUtils';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card';
+import AttemptMarker from '../AttemptMarker';
 
 type Props = {
   item: Mission;
@@ -36,27 +38,57 @@ const ProviderRecordCard = ({ item, type }: Props) => {
     }
   ];
 
+  const hoverContent = (
+    <HoverCardContent>
+      <h4 className="heading-sm pb-2">{type == 'launches' ? provider.launchCount : provider.landingCount} total attempts</h4>
+      <ul className="flex flex-col">
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'danger'} />
+          <p>{type == 'launches' ? provider.launchFailedCount : provider.landingFailedCount} Failed</p>
+        </li>
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'accent'} />
+          <p>{type == 'launches' ? provider.launchConsecutiveCount : provider.landingConsecutiveCount} Consecutive successful</p>
+        </li>
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'success'} />
+          <p>
+            {type == 'launches'
+              ? provider.launchSuccessCount - provider.launchConsecutiveCount
+              : provider.landingSuccessCount - provider.landingConsecutiveCount}{' '}
+            Successful
+          </p>
+        </li>
+      </ul>
+    </HoverCardContent>
+  );
+
   return (
     <Card>
       <CardHeader
         preHeading={preHeading}
         heading={heading > 0 ? heading : 'No Known Attempts'}
       />
-      <CardContent className="flex-1 flex flex-col gap-2">
-        {data.map((e, i) => (
-          <div
-            key={i}
-            className={`bg-${e.status} h-3 rounded-full`}
-          >
-            {e.progress > 0 && (
+      <HoverCard>
+        <HoverCardTrigger>
+          <CardContent className="flex-1 flex flex-col gap-2">
+            {data.map((e, i) => (
               <div
-                className={`bg-${e.status}-foreground h-full rounded-full`}
-                style={{ width: `${e.progress}%` }}
-              ></div>
-            )}
-          </div>
-        ))}
-      </CardContent>
+                key={i}
+                className={`bg-${e.status} h-3 rounded-full`}
+              >
+                {e.progress > 0 && (
+                  <div
+                    className={`bg-${e.status}-foreground h-full rounded-full`}
+                    style={{ width: `${e.progress}%` }}
+                  ></div>
+                )}
+              </div>
+            ))}
+          </CardContent>
+        </HoverCardTrigger>
+        {hoverContent}
+      </HoverCard>
     </Card>
   );
 };

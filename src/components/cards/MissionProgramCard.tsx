@@ -10,14 +10,14 @@ const MissionProgramCard = ({ item }: Item) => {
   return (
     <Card className="pb-[1.125rem]">
       <CardHeader heading={item.program?.[0] ? 'Mission & Program' : 'Mission Details'}>
-        <Badge variant={'learnMore'}>
+        {/* <Badge variant={'learnMore'}>
           <Icon
             name="plus"
             size="small"
             fill="purple"
           />
           More
-        </Badge>
+        </Badge> */}
       </CardHeader>
       <CardContent>
         <ul className="w-full flex flex-col gap-1">

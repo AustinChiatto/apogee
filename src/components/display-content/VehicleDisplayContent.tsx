@@ -29,7 +29,7 @@ const VehicleDisplayContent = ({ item }: VehicleDisplayContent) => {
         />
       </Card>
       <div className="grid grid-cols-2 gap-2">
-        <div className="col-span-1 h-max flex flex-col gap-2">
+        <div className="col-span-2 lg:col-span-1 h-max flex flex-col gap-2">
           {/* Vehicle Configuration */}
           <Card className="gap-8 pb-[1.125rem]">
             <CardHeader preHeading="Configuration">

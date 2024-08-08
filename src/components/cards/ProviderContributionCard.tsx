@@ -4,6 +4,7 @@ import { getMissionDetails, getProviderDetails } from '@/lib/missionUtils';
 import { createArray, getSafeName, getStatusType } from '@/lib/utils';
 import AttemptMarker from '../AttemptMarker';
 import { Badge } from '../ui/badge';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card';
 
 const ProviderContributionCard = ({ item }: Item) => {
   const mission = getMissionDetails(item);
@@ -38,21 +39,49 @@ const ProviderContributionCard = ({ item }: Item) => {
         <Badge variant={'glass'}>{getOrdinalSuffix(mission.attemptsYear)} Launch</Badge>
       </CardHeader>
       <CardContent>
-        <div className="flex flex-wrap gap-[1px]">
-          {nonAgencyAttempts.map((_, i) => (
-            <AttemptMarker
-              key={i}
-              variant="muted"
-            />
-          ))}
-          {remainingAgencyAttempts.map((_, i) => (
-            <AttemptMarker
-              key={i}
-              variant="secondary"
-            />
-          ))}
-          <AttemptMarker variant={getStatusType(mission.statusId)} />
-        </div>
+        <HoverCard>
+          <HoverCardTrigger>
+            <div className="flex flex-wrap gap-[1px]">
+              {nonAgencyAttempts.map((_, i) => (
+                <AttemptMarker
+                  key={i}
+                  variant="muted"
+                />
+              ))}
+              {remainingAgencyAttempts.map((_, i) => (
+                <AttemptMarker
+                  key={i}
+                  variant="secondary"
+                />
+              ))}
+              <AttemptMarker variant={getStatusType(mission.statusId)} />
+            </div>
+          </HoverCardTrigger>
+          <HoverCardContent>
+            <h4 className="heading-sm pb-2">{totalAttemptsCount} launch attempts this year</h4>
+            <ul className="flex flex-col">
+              <li className="flex gap-2 items-center">
+                <AttemptMarker variant={'muted'} />
+                <p>{totalAttemptsCount - mission.attemptsYear} attempts by others</p>
+              </li>
+              <li className="flex gap-2 items-center">
+                <AttemptMarker variant={'secondary'} />
+                <p>
+                  {mission.attemptsYear} attempts by{' '}
+                  {getSafeName({
+                    nameLong: provider.name,
+                    nameShort: provider.abbrev,
+                    maxLength: 15
+                  })}
+                </p>
+              </li>
+              <li className="flex gap-2 items-center">
+                <AttemptMarker variant={getStatusType(mission.statusId)} />
+                <p>Current attempt</p>
+              </li>
+            </ul>
+          </HoverCardContent>
+        </HoverCard>
       </CardContent>
     </Card>
   );

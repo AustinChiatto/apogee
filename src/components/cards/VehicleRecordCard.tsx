@@ -2,6 +2,8 @@ import { Mission } from '@/types/missionProps';
 import { Card, CardContent, CardHeader } from '../Card';
 import { getVehicleDetails } from '@/lib/missionUtils';
 import { createArray } from '@/lib/utils';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card';
+import AttemptMarker from '../AttemptMarker';
 
 type Props = {
   item: Mission;
@@ -20,26 +22,25 @@ const VehicleRecordCard = ({ item, type }: Props) => {
   const landingsConsecutive = createArray(vehicle.landingConsecutiveCount);
   const landingsFailed = createArray(vehicle.landingFailedCount);
 
-  // todo: reduce repetition between launches & landings
   const launches = (
     <>
       {launchesFailed.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-danger-foreground rounded-full"
-        ></span>
+          variant={'danger'}
+        />
       ))}
       {launchesNonConsecutive.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-success-foreground rounded-full"
-        ></span>
+          variant={'success'}
+        />
       ))}
       {launchesConsecutive.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-accent-foreground rounded-full"
-        ></span>
+          variant={'accent'}
+        />
       ))}
     </>
   );
@@ -47,24 +48,49 @@ const VehicleRecordCard = ({ item, type }: Props) => {
   const landings = (
     <>
       {landingsFailed.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-danger-foreground rounded-full"
-        ></span>
+          variant={'danger'}
+        />
       ))}
       {landingsNonConsecutive.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-success-foreground rounded-full"
-        ></span>
+          variant={'success'}
+        />
       ))}
       {landingsConsecutive.map((_, i) => (
-        <span
+        <AttemptMarker
           key={i}
-          className="inline-block w-4 h-2 bg-accent-foreground rounded-full"
-        ></span>
+          variant={'accent'}
+        />
       ))}
     </>
+  );
+
+  const hoverContent = (
+    <HoverCardContent>
+      <h4 className="heading-sm pb-2">{type == 'launches' ? vehicle.launchCount : vehicle.landingCount} total attempts</h4>
+      <ul className="flex flex-col">
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'danger'} />
+          <p>{type == 'launches' ? vehicle.launchFailedCount : vehicle.landingFailedCount} Failed</p>
+        </li>
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'success'} />
+          <p>
+            {type == 'launches'
+              ? vehicle.launchSuccessCount - vehicle.launchConsecutiveCount
+              : vehicle.landingSuccessCount - vehicle.landingConsecutiveCount}{' '}
+            Successful
+          </p>
+        </li>
+        <li className="flex gap-2 items-center">
+          <AttemptMarker variant={'accent'} />
+          <p>{type == 'launches' ? vehicle.launchConsecutiveCount : vehicle.landingConsecutiveCount} Consecutive successful</p>
+        </li>
+      </ul>
+    </HoverCardContent>
   );
 
   return (
@@ -74,7 +100,12 @@ const VehicleRecordCard = ({ item, type }: Props) => {
         heading={heading > 0 ? heading : 'No Known Attempts'}
       />
       <CardContent className="pt-6">
-        <div className="flex flex-wrap gap-[1px]">{type == 'launches' ? launches : landings}</div>
+        <HoverCard>
+          <HoverCardTrigger>
+            <div className="flex flex-wrap gap-[1px]">{type == 'launches' ? launches : landings}</div>
+          </HoverCardTrigger>
+          {hoverContent}
+        </HoverCard>
       </CardContent>
     </Card>
   );

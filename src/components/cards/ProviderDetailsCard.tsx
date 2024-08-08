@@ -29,14 +29,14 @@ const ProviderDetailsCard = ({ item }: Item) => {
           maxLength: 15
         })} Details`}
       >
-        <Badge variant={'learnMore'}>
+        {/* <Badge variant={'learnMore'}>
           <Icon
             name="plus"
             size="small"
             fill="purple"
           />
           More
-        </Badge>
+        </Badge> */}
       </CardHeader>
       <CardContent>
         <ul className="w-full flex flex-col gap-1">

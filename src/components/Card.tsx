@@ -27,9 +27,7 @@ export const Card = ({ variant = 'default', children, className }: CardProps) =>
   const cardVariant = variants[variant];
 
   return (
-    <section
-      className={`flex-1 flex flex-col justify-between rounded-lg overflow-hidden ${cardVariant} ${className}`}
-    >
+    <section className={`flex-1 flex flex-col col-span-2 lg:col-span-1 justify-between rounded-lg overflow-hidden ${cardVariant} ${className}`}>
       {children}
     </section>
   );
@@ -41,9 +39,7 @@ export const CardHeader = ({ preHeading, heading, children, isTitle }: CardHeade
       {(preHeading || heading) && (
         <div className="flex flex-col gap-1">
           {preHeading && <h3 className="heading-sm">{preHeading}</h3>}
-          {heading && (
-            <h4 className={`leading-none ${isTitle ? 'heading-xl' : 'heading-lg'}`}>{heading}</h4>
-          )}
+          {heading && <h4 className={`leading-none ${isTitle ? 'heading-xl' : 'heading-lg'}`}>{heading}</h4>}
         </div>
       )}
       {children}

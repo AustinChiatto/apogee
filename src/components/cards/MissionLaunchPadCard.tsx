@@ -17,7 +17,7 @@ const MissionLaunchPadCard = ({ item }: Item) => {
   );
 
   return (
-    <div className="relative rounded-lg col-span-1 min-h-[24rem] overflow-hidden border border-[0.375rem] border-card">
+    <div className="relative col-span-2 lg:col-span-1 rounded-lg col-span-1 min-h-[24rem] overflow-hidden border border-[0.375rem] border-card">
       <div className="h-full w-full bg-card overflow-hidden">
         <Map
           lat={Number(mission.padLatitude)}

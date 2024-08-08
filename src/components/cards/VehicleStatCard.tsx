@@ -22,14 +22,14 @@ const VehicleStatCard = ({ item }: Item) => {
       variant="tall"
     >
       <CardHeader heading="Vehicle Details">
-        <Badge variant={'learnMore'}>
+        {/* <Badge variant={'learnMore'}>
           <Icon
             name="plus"
             size="small"
             fill="purple"
           />
           More
-        </Badge>
+        </Badge> */}
       </CardHeader>
       <CardContent className="flex-1">
         <ul className="grid grid-cols-2 gap-2 h-full">
