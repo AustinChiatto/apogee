@@ -26,7 +26,9 @@ const ItemDisplay: React.FC<{ items: { upcoming: Mission[]; previous: Mission[] 
         <div className={`w-2 h-2 rounded-full bg-${getStatusType(mission.statusId)}-foreground`}></div>
         <h3 className="heading-xl">{mission.name ?? 'NAME NULL'}</h3>
       </div>
-      <div className="bg-foreground text-background px-2 rounded-full">{mission.net ? translateDate(mission.net) : 'TBC'}</div>
+      <span className="flex gap-2 items-center">
+        <div className="h-fit bg-foreground text-background px-2 rounded-full">{mission.net ? translateDate(mission.net) : 'TBC'}</div>
+      </span>
     </div>
   );
 

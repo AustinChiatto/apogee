@@ -1,19 +1,19 @@
 export const orbitDescriptions = [
   {
     id: 0,
-    descriptions: 'Orbit with varying altitudes, forming an oval shape.'
+    descriptions: 'An elongated orbit around Earth.'
   },
   {
     id: 1,
-    descriptions: 'Maintains altitude approximately 35,786 km above Earth.'
+    descriptions: 'Direct path to a fixed orbit 35,000 km above Earth.'
   },
   {
     id: 2,
-    descriptions: 'Intermediate transfer orbit to 35,786 km altitude.'
+    descriptions: 'Intermediate transfer orbit 35,000 km above Earth.'
   },
   {
     id: 3,
-    descriptions: 'Orbit around 35,786 km with matching rotation period.'
+    descriptions: 'Fixed orbit 35,000 km above Earth.'
   },
   {
     id: 4,
@@ -21,19 +21,19 @@ export const orbitDescriptions = [
   },
   {
     id: 5,
-    descriptions: 'Stable point 1.5 million km from Earth.'
+    descriptions: 'Stable point between Earth and Sun.'
   },
   {
     id: 6,
-    descriptions: 'Orbit around the Sun, varying distances.'
+    descriptions: 'Orbit around the Sun.'
   },
   {
     id: 7,
-    descriptions: 'Any orbit above 35,786 km.'
+    descriptions: 'Any orbit around Earth greator than 35,000 km.'
   },
   {
     id: 8,
-    descriptions: 'Orbit up to 2,000 km altitude.'
+    descriptions: 'Orbit up to 2,000 km above Earth.'
   },
   {
     id: 9,
@@ -49,7 +49,7 @@ export const orbitDescriptions = [
   },
   {
     id: 12,
-    descriptions: 'Orbit between 2,000 and 35,786 km altitude.'
+    descriptions: 'Orbit between 2,000 and 35,000 km above Earth.'
   },
   {
     id: 13,
@@ -57,7 +57,7 @@ export const orbitDescriptions = [
   },
   {
     id: 14,
-    descriptions: 'Path exceeding the solar gravitational boundary.'
+    descriptions: 'Leaving the Solar System.'
   },
   {
     id: 15,
@@ -73,7 +73,7 @@ export const orbitDescriptions = [
   },
   {
     id: 18,
-    descriptions: 'Transfer orbit above geostationary.'
+    descriptions: 'High-energy path to geostationary orbit.'
   },
   {
     id: 19,
