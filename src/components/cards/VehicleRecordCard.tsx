@@ -78,12 +78,7 @@ const VehicleRecordCard = ({ item, type }: Props) => {
         </li>
         <li className="flex gap-2 items-center">
           <AttemptMarker variant={'success'} />
-          <p>
-            {type == 'launches'
-              ? vehicle.launchSuccessCount - vehicle.launchConsecutiveCount
-              : vehicle.landingSuccessCount - vehicle.landingConsecutiveCount}{' '}
-            Successful
-          </p>
+          <p>{type == 'launches' ? vehicle.launchSuccessCount : vehicle.landingSuccessCount} Successful</p>
         </li>
         <li className="flex gap-2 items-center">
           <AttemptMarker variant={'accent'} />

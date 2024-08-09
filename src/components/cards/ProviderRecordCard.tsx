@@ -29,12 +29,12 @@ const ProviderRecordCard = ({ item, type }: Props) => {
       progress: type == 'launches' ? failedLaunches : failedLandings
     },
     {
-      status: 'accent',
-      progress: type == 'launches' ? consecutiveLaunches : consecutiveLandings
-    },
-    {
       status: 'success',
       progress: type == 'launches' ? successfulLaunches : successfulLandings
+    },
+    {
+      status: 'accent',
+      progress: type == 'launches' ? consecutiveLaunches : consecutiveLandings
     }
   ];
 
@@ -47,17 +47,12 @@ const ProviderRecordCard = ({ item, type }: Props) => {
           <p>{type == 'launches' ? provider.launchFailedCount : provider.landingFailedCount} Failed</p>
         </li>
         <li className="flex gap-2 items-center">
-          <AttemptMarker variant={'accent'} />
-          <p>{type == 'launches' ? provider.launchConsecutiveCount : provider.landingConsecutiveCount} Consecutive successful</p>
+          <AttemptMarker variant={'success'} />
+          <p>{type == 'launches' ? provider.launchSuccessCount : provider.landingSuccessCount} Successful</p>
         </li>
         <li className="flex gap-2 items-center">
-          <AttemptMarker variant={'success'} />
-          <p>
-            {type == 'launches'
-              ? provider.launchSuccessCount - provider.launchConsecutiveCount
-              : provider.landingSuccessCount - provider.landingConsecutiveCount}{' '}
-            Successful
-          </p>
+          <AttemptMarker variant={'accent'} />
+          <p>{type == 'launches' ? provider.launchConsecutiveCount : provider.landingConsecutiveCount} Consecutive successful</p>
         </li>
       </ul>
     </HoverCardContent>
