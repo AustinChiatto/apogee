@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com',
+        hostname: 'thespacedevs-prod.nyc3.digitaloceanspaces.com',
         port: '',
         pathname: '/media/**'
       }
